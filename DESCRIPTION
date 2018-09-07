@@ -1,13 +1,24 @@
 Package: invctr
-Title: Infix Vector Operations, Computations, Transformations and Recursion
-Version: 0.0.0.9000
+Title: Infix Functions For Vector Operations
+Version: 0.1.0
 Authors@R: person("Fred", "Hasselman", email = "f.hasselman@bsi.ru.nl", role = c("aut", "cre"))
-Description: An R-package full of infix functions that perform common, and less common vector operation function.
-License: GPL-3
-Imports: 
-    magrittr,
-    rlang (>= 0.1.2)
+Description: An INFIX-only package! The invctr functions perform common and less common operations on vectors, data frames matrices and list objects:
+    - Extracting a value (range), or, finding the indices of a value (range).
+    - Trimming, or padding a vector with a value of your choice.
+    - Simple polynomial regression.
+    - Set and membership operations.
+    - General check & replace function for NAs, Inf and other values.
+Imports:
+    rlang (>= 0.1.2),
+    plyr
 ByteCompile: true
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
+License: GPL-3
+Suggests: 
+    spelling,
+    knitr,
+    rmarkdown
+Language: en-US
+VignetteBuilder: knitr

@@ -41,3 +41,4 @@ Other auto counters: \code{\link{\%++\%}}
 \author{
 Fred Hasselman
 }
+\concept{auto counters}

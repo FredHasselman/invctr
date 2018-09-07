@@ -1,6 +1,5 @@
 #' Rose tinted infix
 #'
-#'
 #' @param x If (an element of) \code{x} is any of \code{Inf,-Inf,NA,NaN,NULL,length(x)==0}, it will return/replace the value of \code{y}; otherwise \code{x}.
 #' @param y The value to return/replace for \code{x} in case of catastrophy \code{>00<}
 #'
@@ -47,52 +46,69 @@
 
 #' Extract vectors by index
 #'
+#' Extract vector front/rear up and untill and index \code{i} or the first/last occurence of \code{v} in \code{x}.
+#'
 #' @param x A vector
-#' @param i An index
-#' @param j A two element vector \code{}  indicating a range to extract
+#' @param i An index or two element vector \code{c(lo,hi)} indicating a range to extract
+#' @param v A value of which the first or last occurrence in \code{x} will be used as an index
 #'
 #' @name extractors
 #'
-#' @return A vector extracted from the front, rear, or, center of \code{x}. Either based on an index or the occurrence of a value.
+#' @return A vector extracted from the front, rear, or, range of \code{x}. Either based on an index or the first or last occurrence of a value.
 #'
 #' @examples
 #'
-#' # Extract front by value
 #' z <- letters
 #'
-#' z%[1%"n"
+#' # Extract front by first occurrence of value
+#' z %[f% "n"
 #'
 #' # Extract front by index
 #' x <- rnorm(100)
-#' x%[%10
+#' x %[% 10
 #'
 #' # Extract rear by index
-#' 90%]%x
+#' x %]% 90
 #'
-#' # Extract center by indices
-#' x%[.]%c(4,30)
-#' z%[.]%c(6,10)
+#' # Extract by indices if a range is provided
+#' x %]% c(4,30)
+#' z %[% c(6,10)
 #'
 NULL
 # > NULL
 
 
-#' Extract front by 1st occurrence
+#' Extract front by first occurrence of a value
 #'
-#' Extract vector front up and untill first occurence of \code{i} in \code{x}
 #'
-#' @return The contents of vector \code{x} in the range \code{x[1:i]}
 #' @export
 #'
 #' @rdname extractors
 #'
-`%[1%` <- function(x, i) {
-  if (all(is.vector(x), is.wholenumber(i))) {
-    ind <- which(x %in% i) %00% NA
-    if (is.na(ind)) {
-      stop("i was not found in x")
+`%[f%` <- function(x, v) {
+  if (is.vector(x)) {
+    i <- which(x %in% v) %00% NA
+    if (all(is.na(i))) {
+      stop("v was not found in x")
     } else {
-      return(x[1:ind])
+      return(x[1:i[1]])
+    }
+  }
+}
+
+#' Extract front by last occurrence of a value
+#'
+#' @export
+#'
+#' @rdname extractors
+#'
+`%[l%` <- function(x, v) {
+  if (is.vector(x)) {
+    i <- which(x %in% v) %00% NA
+    if (all(is.na(i))) {
+      stop("v was not found in x")
+    } else {
+      return(x[1:i[length(i)]])
     }
   }
 }
@@ -101,29 +117,66 @@ NULL
 #'
 #' @rdname extractors
 #' @export
-#' @note This is provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal
+#'
+#' @note The function provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal.
 #'
 `%[%` <- function(x, i) {
-  if (all(is.vector(x), is.wholenumber(i))) {
-    return(x[1:i])
+  if (all(is.vector(x))){
+    if (all(i %[]% c(1, NROW(x)))){
+      if(length(i)==2){
+        return(x[i[1]:i[2]])
+      } else {
+        return(x[1:i])
+      }
+    }
   }
 }
 
 #' Extract vector rear
 #'
-#' @param i An index in the range \code{[1,length(x)]}
-#' @param x A vector
+#' @export
+#' @rdname extractors
 #'
-#' @return The contents of vector \code{x} in the range \code{x[i:length(x)]}
+`%]%` <- function(x, i){
+  if (all(is.vector(x))){
+    if (all(i %[]% c(1, NROW(x)))){
+      if(length(i)==2){
+          return(x[i[1]:i[2]])
+        } else {
+          return(x[i:NROW(x)])
+      }
+    }
+  }
+}
+
+#' Extract first occurrence of a value to vector rear
 #'
 #' @export
+#' @rdname extractors
 #'
-#' @family vector extractors
+`%f]%` <- function(x, v) {
+  if (is.vector(x)) {
+    i <- which(x %in% v) %00% NA
+    if (all(is.na(i))) {
+      stop("v was not found in x")
+    } else {
+      return(x[i[1]:NROW(x)])
+    }
+  }
+}
+
+#' Extract last occurrence of a value to vector rear
 #'
-`%]%` <- function(i, x) {
-  if (all(is.vector(x), is.wholenumber(i))) {
-    if (i %[]% c(1, length(x))) {
-      return(x[i:length(x)])
+#' @export
+#' @rdname extractors
+#'
+`%l]%` <- function(x, v) {
+  if (is.vector(x)) {
+    i <- which(x %in% v) %00% NA
+    if (all(is.na(i))) {
+      stop("v was not found in x")
+    } else {
+      return(x[i[length(i)]:NROW(x)])
     }
   }
 }
@@ -223,10 +276,12 @@ NULL
 #' # Pad front + rear with NA
 #' x%[+]%c(NA,10)
 #'
-#' # Pad front + rear of character vector
+#' # Pad front + rear of a character vector
 #' "yes"%[+]%c(2,"no")
 #' "yes"%[+]%c(1,"no")
 #' "yes"%[+]%c(0,"no")
+#'
+NULL
 
 #' Pad vector front
 #'
@@ -312,7 +367,7 @@ NULL
 #'
 `%/r%` <- function(x, y) {
   if (all(is.vector(x), is.vector(y))) {
-    cor(x, y)
+    stats::cor(x, y)
   }
 }
 
@@ -322,7 +377,7 @@ NULL
 #'
 `%/1%` <- function(x, y) {
   if (all(is.vector(x), is.vector(y))) {
-    lm(y ~ poly(x, order = 1))
+    stats::lm(y ~ stats::poly(x, order = 1))
   }
 }
 
@@ -332,7 +387,7 @@ NULL
 #'
 `%/2%` <- function(x, y) {
   if (all(is.vector(x), is.vector(y))) {
-    lm(y ~ poly(x, order = 2))
+    stats::lm(y ~ stats::poly(x, order = 2))
   }
 }
 
@@ -342,7 +397,7 @@ NULL
 #'
 `%/3%` <- function(x, y) {
   if (all(is.vector(x), is.vector(y))) {
-    lm(y ~ poly(x, order = 3))
+    stats::lm(y ~ stats::poly(x, order = 3))
   }
 }
 
@@ -352,18 +407,19 @@ NULL
 #'
 `%/4%` <- function(x, y) {
   if (all(is.vector(x), is.vector(y))) {
-    lm(y ~ poly(x, order = 4))
+    stats::lm(y ~ stats::poly(x, order = 4))
   }
 }
 
 #' `%/n%` Polynomial regression of degree n
+#'
 #' @rdname regressors
 #' @export
 #'
 `%/n%` <- function(x, yn = list(y = x, n = 1)) {
-  if (length(y) == 2) {
+  if (length(yn) == 2) {
     if (all(is.vector(x), is.vector(yn[[1]]), is.wholenumber(yn[[2]]))) {
-      lm(yn[[1]] ~ poly(x, order = yn[[2]]))
+      stats::lm(yn[[1]] ~ stats::poly(x, order = yn[[2]]))
     }
   }
 }
@@ -402,7 +458,7 @@ NULL
 #' while(i > -3) i %+-% -5
 #'
 `%+-%` <- function(counter, increment) {
-  if (is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment == 0) {
+  if (any(is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment == 0)) {
     stop("Don't know how to work with counter and/or increment argument.\n Did you use integers?")
   } else {
     result <- counter + increment
@@ -454,7 +510,7 @@ NULL
 #' while(i < 20) i %+-% 5
 #'
 `%++%` <- function(counter, increment) {
-  if (is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment <= 0 | counter < 0) {
+  if (any(is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment <= 0 | counter < 0)) {
     stop("Don't know how to work with counter and/or increment argument.\n Did you use integers?")
   } else {
     result <- counter + increment
@@ -470,53 +526,58 @@ NULL
 
 #' Inside interval
 #'
-#' Decide if a value \code{x} falls within an interval \code{j[1],j[2]}
+#' Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
 #'
 #' @param x A vector
 #' @param j A range
 #'
-#' @name outsiders
+#' @note Package `DescTools` provides similar functions
 #'
-#' @return True or false
+#' @name insiders
+#'
+#' @return Logical vector of length \code{x}, or, values in the range \code{j}
 #'
 #' @examples
 #'
 #' # Closed interval
-#' 5%[]%c(1,5)
+#' 0:5 %[]% c(1,5)  # logical vector
+#' 0:5 %[.]% c(1,5) # extract values
 #'
 #' # Open interval
-#' 5%()%c(1,5)
+#' 0:5 %()% c(1,5)
+#' 0:5 %(.)% c(1,5)
 #'
 #' # Closed interval left
-#' 5%[)%c(1,5)
+#' 0:5 %[)% c(1,5)
+#' 0:5 %[.)% c(1,5)
 #'
 #' # Closed interval right
-#' 5%(]%c(1,5)
+#' 0:5 %(]% c(1,5)
+#' 0:5 %(.]% c(1,5)
+#'
 #'
 NULL
 # >NULL
 
 
-#'  Closed interval
+#'  In closed interval
 #'
-#' @rdname outsiders
+#' @rdname insiders
 #' @export
 #'
-#' @seealso \link{[DescTools]}
 #'
 `%[]%` <- function(x, j) {
-  if (all(length(j) == 2, is.numeric(x), is.numeric(j))) {
+  if(all(length(j) == 2, is.numeric(x), is.numeric(j))){
     rng <- sort(j)
     x >= rng[1] & x <= rng[2]
   }
 }
 
-#'  Open interval
+#'  In open interval
 #'
-#' @rdname outsiders
+#' @rdname insiders
 #' @export
 #'
-#' @seealso \link{[DescTools]}
 #'
 `%()%` <- function(x, j) {
   if (all(length(j) == 2, is.numeric(x), is.numeric(j))) {
@@ -525,12 +586,11 @@ NULL
   }
 }
 
-#'  Closed interval (left)
+#'  In closed interval (left)
 #'
-#' @rdname outsiders
+#' @rdname insiders
 #' @export
 #'
-#' @seealso \link{[DescTools]}
 #'
 `%[)%` <- function(x, j) {
   if (all(length(j) == 2, is.numeric(x), is.numeric(j))) {
@@ -539,17 +599,397 @@ NULL
   }
 }
 
-#'  Closed interval (right)
+#'  In closed interval (right)
 #'
-#' @rdname outsiders
+#' @rdname insiders
 #' @export
 #'
-#' @seealso \link{[DescTools]}
 #'
 `%(]%` <- function(x, j) {
   if (all(length(j) == 2, is.numeric(x), is.numeric(j))) {
     rng <- sort(j)
     x > rng[1] & x <= rng[2]
+  }
+}
+
+
+#'  Return x in closed interval
+#'
+#' @rdname insiders
+#' @export
+#'
+#'
+`%[.]%` <- function(x, j) {
+  x[x%[]%j]
+}
+
+#'  Return x in open interval
+#'
+#' @rdname insiders
+#' @export
+#'
+#'
+`%(.)%` <- function(x, j) {
+    x[x%()%j]
+}
+
+#'  Return x in closed interval (left)
+#'
+#' @rdname insiders
+#' @export
+#'
+#'
+`%[.)%` <- function(x, j) {
+  x[x%[)%j]
+}
+
+#'  Return x in closed interval (right)
+#'
+#' @rdname insiders
+#' @export
+#'
+#'
+`%(.]%` <- function(x, j) {
+  x[x%(]%j]
+}
+
+
+#' Outside interval
+#'
+#' Decide if a value \code{x} falls outside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
+#'
+#' @param x A vector
+#' @param j A range
+#'
+#' @note Package `DescTools` provides similar functions
+#'
+#' @name outsiders
+#'
+#' @return logical vector of length x, or, values of x outside the range j
+#'
+#' @examples
+#'
+#' # Closed interval
+#' 5%][%c(1,5)
+#' 5%].[%c(1,5)
+#'
+#' # Open interval
+#' 5%)(%c(1,5)
+#' 5%).(%c(1,5)
+#'
+#' # Closed interval left
+#' 5%](%c(1,5)
+#' 5%].(%c(1,5)
+#'
+#' # Closed interval right
+#' 5%)[%c(1,5)
+#' 5%).[%c(1,5)
+#'
+#'
+NULL
+# >NULL
+
+
+#'  Not in closed interval
+#'
+#' @rdname outsiders
+#' @export
+#'
+`%][%` <- function(x, j) {
+  return(!x%()%j)
+}
+
+#'  Not in open interval
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%)(%` <- function(x, j) {
+  return(!x%[]%j)
+}
+
+#'  Not in closed interval (left)
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%](%` <- function(x, j) {
+  return(!x%(]%j)
+}
+
+#'  Not in closed interval (right)
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%)[%` <- function(x, j) {
+  return(!x%[)%j)
+}
+
+
+#'  Return x not in closed interval
+#'
+#' @rdname outsiders
+#' @export
+#'
+`%].[%` <- function(x, j) {
+  return(x[!x%()%j])
+}
+
+#'  Return x not in open interval
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%).(%` <- function(x, j) {
+  return(x[!x%[]%j])
+}
+
+#'  Return x not in closed interval (left)
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%].(%` <- function(x, j) {
+  return(x[!x%(]%j])
+}
+
+#'  Return x not in closed interval (right)
+#'
+#' @rdname outsiders
+#' @export
+#'
+#'
+`%).[%` <- function(x, j) {
+  return(x[!x%[)%j])
+}
+
+
+#' Find row or column by name or index
+#'
+#' @param c Column name or index
+#' @param r Row name or index
+#' @param rc A 2-element numeric or character vector representing \code{c(r,c)}. Names (character) and indices (numeric) vectors can be mixed if \code{rc} is passed as a 2-element list object.
+#' @param nv A numeric value, or vector of values of which you want to know the indices in \code{d}.
+#' @param d A named vector, list, matrix, or data frame
+#'
+#' @return If \code{r/c/rc} is numeric, the name corresponding to the row/column index of \code{d}, if \code{r/c/rc} is a character vector, the row/column index corresponding to the row/column name. If \code{dimnames(d) == NULL}, but \code{names(d) != NULL} then \code{\%ci\%} and \code{\%ri\%} will look up \code{r/c} in \code{names(d)}
+#'
+#' @name fINDexers
+#'
+#' @author Fred Hasselman
+#'
+#' @examples
+#'
+# # data frame
+# d <- data.frame(x=1:5,y=6,row.names=paste0("ri",5:1))
+#
+# "y" %ci% d # y is the 2nd column of d
+#   2 %ci% d # the name of the second column of d is "y"
+#
+#     2 %ri% d
+# "ri5" %ri% d
+#
+# # change column name
+#  colnames(d)["y" %ci% d] <- "Yhat"
+#
+# # mi works on data frames, matrices, tiblles, etc.
+#  c(5,2) %mi% d
+#  list(r="ri1",c=2) %mi% d
+#
+# # matrix row and column indices
+# m <- matrix(1:10,ncol=2, dimnames = list(paste0("ri",0:4),c("xx","yy")))
+#
+#  1 %ci% m
+#  5 %ci% m # no column 5
+#
+#  1 %ri% m
+#  5 %ri% m
+#
+#  c(5,1)%mi%m
+#  c(1,5)%mi%m
+#
+# # For list and vector objects ri and ci return the same values
+# l <- list(a=1:100,b=LETTERS)
+#
+#   2 %ci% l
+# "a" %ci% l
+#
+#   2 %ri% l
+# "a" %ri% l
+#
+# # named vector
+# v <- c("first" = 1, "2nd" = 1000)
+#
+# "2nd" %ci% v
+#     1 %ci% v
+#
+# "2nd" %ri% v
+#     1 %ri% v
+#
+# # get all indices of the number 1 in v
+#  1 %ai% v
+#
+# # get all indices of the number 3 and 6 in d
+#  c(3,6) %ai% d
+#
+# # get all indices of values: Z < -1.96 and Z > 1.96
+#  Z <- rnorm(100)
+#  Z[Z%)(%c(-1.96,1.96)] %ai% Z
+#'
+#'
+NULL
+
+#' Column by name or index
+#'
+#' @rdname fINDexers
+#' @export
+#'
+`%ci%` <- function(c, d) {
+  if (all(!is.null(dimnames(d)[[2]]), any(is.numeric(c), is.character(c)))){
+    if(is.character(c)){
+      return(which(dimnames(d)[[2]]%in%c))
+    } else {
+      return(dimnames(d)[[2]][c])
+    }
+  } else {
+    if(!is.null(names(d))){
+      if(is.character(c)){
+        return(which(names(d)%in%c))
+      } else {
+        return(names(d)[c])
+      }
+    }
+  }
+  return(NA)
+}
+
+#' Row by name or number
+#'
+#' @rdname fINDexers
+#' @export
+#'
+`%ri%` <- function(r, d) {
+  if (all(!is.null(dimnames(d)[[1]]), any(is.numeric(r), is.character(r)))){
+    if(is.character(r)){
+      return(which(dimnames(d)[[1]]%in%r))
+    } else {
+      return(dimnames(d)[[1]][r])
+    }
+   } else {
+    if(!is.null(names(d))){
+      if(is.character(r)){
+        return(which(names(d)%in%r))
+      } else {
+        return(names(d)[r])
+      }
+    }
+   }
+  return(NA)
+}
+
+#' Matrix cell index by name or number
+#'
+#' @rdname fINDexers
+#' @export
+#'
+`%mi%` <- function(rc,d) {
+  if (all(!is.null(dimnames(d)[[1]]), any(is.numeric(unlist(rc)), is.character(unlist(rc))),length(rc)==2)){
+      rr <- rc[[1]]%ri%d
+      cc <- rc[[2]]%ci%d
+      if(is.list(rc)){
+        out <- list(rr,cc)
+        names(out) <- names(rc)
+        return(out)
+      }
+      return(c(rr,cc))
+  } else {
+    message("d is a vector or list object")
+  }
+  return(NA)
+}
+
+
+#' Return all indices of a (range of) values
+#'
+#' @rdname fINDexers
+#' @export
+#'
+`%ai%` <- function(nv,d) {
+  if(all(is.numeric(unlist(nv)),dim(data.frame(nv))[2]==1)){
+    names(nv) <- paste0(nv)
+    out <- plyr::ldply(nv, function(n) which(d==n,arr.ind = TRUE), .id = "nv")
+    return(out)
+    } else {
+    message("nv must be a numeric vector.")
+      return(NA)
+  }
+}
+
+
+#' Is element of... with multiple input types
+#'
+#' @param x A vector, data frame of list containing numbers and/or characters that could be elements of y
+#' @param y An object that could contain values in x
+#'
+#' @return Logical vector indicating which x are an element of y
+#'
+#' @export
+#'
+`%e%` <- function(x,y){
+  outTable <- list()
+  if(any(is.list(x), is.numeric(x), is.character(x))){
+    if(!is.null(dim(x))){
+      outTable <- coliter(cin = x, table = y)
+    } else {
+      if(!is.list(x)){x<-list(x=x)}
+      outTable <- sapply(x, coliter, table = y)
+    }
+  }
+ return(outTable)
+}
+
+coliter <- function(cin,table){
+
+  if(is.null(dim(cin))){
+    if(is.list(cin)){stop("Input structure too complex: list containing a list.")}
+    cin <- data.frame(element=cin, stringsAsFactors = FALSE)
+  }
+
+  out <- list()
+  for(c in 1:NCOL(cin)){
+    if(all(is.numeric(cin[,c]%00%NaN))){
+      cin[,c] <- cin[,c]%00%NaN
+      }
+    if(all(is.character(cin[,c]%00%NA_character_))){
+      cin[,c] <- cin[,c]%00%NaN
+    }
+    elements <- as.list(cin[,c])
+    names(elements) <- paste0(cin[,c])
+    out[[c]] <- lapply(elements, function(n){
+      outTable <- table
+      for(ct in 1:NCOL(table)){
+        outTable[,ct] <- table[,ct]%in%n
+      }
+      return(outTable)
+      })
+  }
+  names(out) <- paste0(NCOL(cin))
+  return(out)
+}
+
+
+# needs work
+`%>>%` <- function(input,output){
+  if(is.list(input)){
+    if(is.character(output)){
+      eval(parse(text = paste0(output)))
+    }
   }
 }
 
@@ -567,7 +1007,14 @@ NULL
 #' @note This code was found in the examples of \link[base]{is.integer}.
 #'
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
-  return(abs(x - round(x)) < tol)
+  if(!is.numeric(x)|all(is.na(x%00%NA))){
+    return(FALSE)
+    } else {
+      # NAs to FALSE
+      NAind <- is.na(x%00%NA)
+      x[NAind] <- 0.5
+      return(abs(x[NAind] - round(x[NAind])) < tol)
+      }
 }
 
 
@@ -604,3 +1051,5 @@ try_CATCH <- function(expr) {
     warning = W
   )
 }
+
+

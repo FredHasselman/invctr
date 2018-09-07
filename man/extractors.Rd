@@ -2,52 +2,58 @@
 % Please edit documentation in R/invictor.R
 \name{extractors}
 \alias{extractors}
-\alias{\%[1\%}
+\alias{\%[f\%}
+\alias{\%[l\%}
 \alias{\%[\%}
+\alias{\%]\%}
+\alias{\%f]\%}
+\alias{\%l]\%}
 \title{Extract vectors by index}
 \usage{
-x \%[1\% i
+x \%[f\% v
+
+x \%[l\% v
 
 x \%[\% i
+
+x \%]\% i
+
+x \%f]\% v
+
+x \%l]\% v
 }
 \arguments{
 \item{x}{A vector}
 
-\item{i}{An index}
+\item{v}{A value of which the first or last occurrence in \code{x} will be used as an index}
 
-\item{j}{A two element vector \code{}  indicating a range to extract}
+\item{i}{An index or two element vector \code{c(lo,hi)} indicating a range to extract}
 }
 \value{
-A vector extracted from the front, rear, or, center of \code{x}. Either based on an index or the occurrence of a value.
-
-The contents of vector \code{x} in the range \code{x[1:i]}
+A vector extracted from the front, rear, or, range of \code{x}. Either based on an index or the first or last occurrence of a value.
 }
 \description{
-Extract vectors by index
-
-Extract vector front up and untill first occurence of \code{i} in \code{x}
-
-Extract vector front by index
+Extract vector front/rear up and untill and index \code{i} or the first/last occurence of \code{v} in \code{x}.
 }
 \note{
-This is provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal
+The function provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal.
 }
 \examples{
 
-# Extract front by value
 z <- letters
 
-z\%[1\%"n"
+# Extract front by first occurrence of value
+z \%[f\% "n"
 
 # Extract front by index
 x <- rnorm(100)
-x\%[\%10
+x \%[\% 10
 
 # Extract rear by index
-90\%]\%x
+x \%]\% 90
 
-# Extract center by indices
-x\%[.]\%c(4,30)
-z\%[.]\%c(6,10)
+# Extract by indices if a range is provided
+x \%]\% c(4,30)
+z \%[\% c(6,10)
 
 }

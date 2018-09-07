@@ -24,6 +24,8 @@ A padded version of \code{x}
 \description{
 Padd vector by index
 
+Pad vector front
+
 Pad vector rear
 
 Pad vector front + rear
@@ -45,10 +47,9 @@ x\%+]\%c(10,0)
 # Pad front + rear with NA
 x\%[+]\%c(NA,10)
 
-# Pad front + rear of character vector
+# Pad front + rear of a character vector
 "yes"\%[+]\%c(2,"no")
 "yes"\%[+]\%c(1,"no")
 "yes"\%[+]\%c(0,"no")
-Pad vector front
 
 }
