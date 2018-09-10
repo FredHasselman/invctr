@@ -49,23 +49,30 @@ x %)(% c(5,9)
 # Outside closed interval
 x %][% c(5,9)
 
-# All variaties left/right open/closed are possible
+# All variations left/right open/closed are possible
 x %[)% c(5,9)
 x %](% c(5,9)
+```
 
-# To extract values you could use vector indexing
+### How to use...
+
+Indices are commonly used to extract values, if you add a dot `.` inbetween the the interval symbols, values will be extracted.
+
+```{r}
+# Regular indexing works, but is a bit 'wordy'
 x[x %[]% c(5,9)]
 
-# It's easier to use the special functions
+# Easier to use the special functions
 x %[.]% c(5,9)
 
 # Simulate a sample from a standard normal distribution
 set.seed(4321)
 Zscore <- rnorm(100)
+
 # Find Z-scores that are 'significant' at alpha = .05
 Zscore %).(% c(-1.96,1.96)
 
-# Old indexing has a lot of repetition, so would tidyverse syntax, e.g. using filter()
+# Old indexing has a lot of repetition, so does tidyverse, e.g. using filter()
 Zscore[Zscore < -1.96 | Zscore > 1.96]
 
 ```
@@ -73,13 +80,14 @@ Zscore[Zscore < -1.96 | Zscore > 1.96]
 
 ### `extractors`
 
-Often, one wants to extract a subset of values from the front or rear of a vector. The `base` functions `head()` and `tail()` can do this. The infix functions in the `extractors` group mimic some of this behaviour and add the ability to extract from, or, up and untill a specific value. 
+Extracting a subset of values from the front or rear of a vector is a common task and the `base` functions `head()` and `tail()` can do this. The infix functions in the `extractors` group mimic some of this behaviour and add the ability to extract *from - to*, or, *up -and-untill*, a specific value. 
 
 
 ```{r}
-# Extract front by first occurrence of value
+# A character vector
 z <- letters
 
+# Extract front by first occurrence of value "n"
 z %[f% "n"
 
 # Random uniform integers
@@ -87,28 +95,28 @@ set.seed(123)
 x <- round(runif(100,1,100))
 
 # Extract front up and untill index 10
-x%[%10          # infix
-x[1:10]         # regular [saves just 1 char]
+x%[%10 # infix
+x[1:10] # regular [saves just 1 char]
 
-# Extract rear from index 90
-x%]%90          # infix
+# Extract from index 90 to rear
+x%]%90 # infix
 x[90:length(x)] # regular
 
 # Extract numbers from front to first occurrence of 11
-x%[f%11              # infix
+x%[f%11 # infix
 x[1:which(x==11)[1]] # regular
 
 # Extract numbers from last occurrence of 11 to rear
-x%l]%11                                         # infix
+x%l]%11 # infix
 x[which(x==11)[length(which(x==11))]:length(x)] # regular
 
 # Extract by indices if an index range provided
 # This is a clear case in which the infix is less sensible to use than regular indexing:
-x%]%c(6,10)
-x[6:10]
+x%]%c(6,10) # infix
+x[6:10] # regular
 
-z%[%c(6,10)
-z[6:10]
+z%[%c(6,10) #infix
+z[6:10] #regular
 
 ```
 
@@ -143,8 +151,12 @@ We can use the infix functions to get names and indices of `d`:
 # Change column name
  colnames(d)["y"%ci%d] <- "Yhat" # infix
  colnames(d)[colnames(d)%in%"y"] <- "Yhat" # regular
+```
 
-# For list and vector objects ri and ci return the same values
+
+For 1D list and vector objects `%ri%` and `%ci%` return the same value.
+
+```{r}
  l <- list(a=1:100, b=LETTERS)
 
  2%ci%l == 2%ri%l
@@ -157,11 +169,10 @@ We can use the infix functions to get names and indices of `d`:
  "2nd"%ci%v == "2nd"%ri%v
 ```
 
-
-Functions `%mi%` and `%ai%` return indices of values
+Function `%mi%` will return row and/or column names on 2D objects: data frames, matrices, tibbles, etc.
 
 ```{r}
-# mi works on data frames, matrices, tiblles, etc.
+# Data frame d
  c(5,2) %mi% d
 
  list(r="ri1",c=2) %mi% d
@@ -177,7 +188,11 @@ Functions `%mi%` and `%ai%` return indices of values
 
  c(5,1)%mi%m
  c(1,5)%mi%m
+```
 
+Function `%ai%` is a version of `%in%` that returns the indices of all occurrences of one or more values in an object.
+
+```{r}
 # get all indices of the number 1 in v
  1 %ai% v
 
