@@ -1,11 +1,9 @@
-%+-%                                Signed increment
-%++%                                Non-negative increment
-%00%                                Rose tinted infix
-%e%                                 Is element of... with multiple input types
-extractors                          Extract vectors by index
-fINDexers                           Find row or column by name or index
-insiders                            Inside interval
-outsiders                           Outside interval
-padders                             Padd vector by index
-regressors                          Regress vectors
-trimmers                            Trim vector by index
+%00%                                     Rose tinted infix
+Counters                                 Counters
+extractors                               Extract vectors by index or value occurrence
+fINDexers                                Find row or column by name or index
+insiders                                 Inside interval
+outsiders                                Outside interval
+padders                                  Padd vector by index
+regressors                               Regress vectors
+trimmers                                 Trim vector by index

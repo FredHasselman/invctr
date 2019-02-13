@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rose tinted infix — %00% • invctr</title>
+<title>Authors • invctr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -25,14 +25,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
-<meta property="og:title" content="Rose tinted infix — %00%" />
-
-<meta property="og:description" content="When your functions wear these rose tinted glasses, the world will appear to be a nicer, fluffier place." />
+<meta property="og:title" content="Authors" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -52,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-authors">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -64,7 +62,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">invctr</a>
+        <a class="navbar-link" href="index.html">invctr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -72,13 +70,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -88,14 +86,22 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/insiders.html">Finding and extracting values and indices</a>
+      <a href="articles/insiders.html">Finding and extracting values and indices</a>
+    </li>
+    <li>
+      <a href="articles/padders.html">Changing vectors and values: Replace, Add/Subtract, Trim, Pad</a>
     </li>
   </ul>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FredHasselman/invctr">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,62 +112,22 @@
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>Rose tinted infix</h1>
-    
-    <div class="hidden name"><code>grapes-00-grapes.Rd</code></div>
+      <h1>Authors</h1>
     </div>
 
-    <div class="ref-description">
-    
-    <p>When your functions wear these rose tinted glasses, the world will appear to be a nicer, fluffier place.</p>
-    
-    </div>
-
-    <pre class="usage"><span class='no'>x</span> <span class='kw'>%00%</span> <span class='no'>y</span></pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>If (an element of) <code>x</code> is any of <code>Inf,-Inf,NA,NaN,NULL,length(x)==0</code>, it will return/replace the value of <code>y</code>; otherwise <code>x</code>.</p></td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td><p>The value to return/replace for <code>x</code> in case of catastrophy <code>&gt;00&lt;</code></p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>purrrr::<!-- %||% --></p></div>
-    
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fl'>Inf</span> <span class='kw'>%00%</span> <span class='fl'>NA</span></div><div class='output co'>#&gt; [1] NA</div><div class='input'>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a></span>(<span class='fl'>0</span>) <span class='kw'>%00%</span> <span class='st'>''</span></div><div class='output co'>#&gt; [1] ""</div><div class='input'>
-<span class='fl'>NA</span> <span class='kw'>%00%</span> <span class='fl'>0</span></div><div class='output co'>#&gt; [1] 0</div><div class='input'>
-<span class='fl'>NaN</span> <span class='kw'>%00%</span> <span class='fl'>NA</span></div><div class='output co'>#&gt; [1] NA</div><div class='input'>
-<span class='kw'>NULL</span> <span class='kw'>%00%</span> <span class='fl'>NA</span></div><div class='output co'>#&gt; [1] NA</div><div class='input'>
-</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
+    <ul class="list-unstyled">
+      <li>
+        <p><strong>Fred Hasselman</strong>. Author, maintainer. <a href='https://orcid.org/0000-0003-1384-8361' target='orcid.widget'><img src='https://members.orcid.org/sites/default/files/vector_iD_icon.svg' class='orcid' alt='ORCID' height='16'></a>
+        </p>
+      </li>
     </ul>
 
-    <h2>Author</h2>
-    <p>Fred Hasselman</p>
   </div>
+
 </div>
+
 
       <footer>
       <div class="copyright">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • invctr</title>
+<title>Counters — Counters • invctr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Counters — Counters" />
+
+<meta property="og:description" content="Counters
+Signed increment
+Non-negative increment" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -50,7 +54,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -88,9 +92,6 @@
     <li>
       <a href="../articles/insiders.html">Finding and extracting values and indices</a>
     </li>
-    <li>
-      <a href="../articles/padders.html">Changing vectors and values: Replace, Add/Subtract, Trim, Pad</a>
-    </li>
   </ul>
 </li>
       </ul>
@@ -112,90 +113,94 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Counters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FredHasselman/invctr/blob/master/R/invictor.R'><code>R/invictor.R</code></a></small>
+    <div class="hidden name"><code>Counters.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Counters</p>
+<p>Signed increment</p>
+<p>Non-negative increment</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>counter</span> <span class='kw'>%+-%</span> <span class='no'>increment</span>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Counters.html">`%+-%`</a></code> <code><a href="Counters.html">`%++%`</a></code> </p>
-        </td>
-        <td><p>Counters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="extractors.html">`%[f%`</a></code> <code><a href="extractors.html">`%[l%`</a></code> <code><a href="extractors.html">`%[%`</a></code> <code><a href="extractors.html">`%]%`</a></code> <code><a href="extractors.html">`%f]%`</a></code> <code><a href="extractors.html">`%l]%`</a></code> <code><a href="extractors.html">`%q]%`</a></code> <code><a href="extractors.html">`%q)%`</a></code> <code><a href="extractors.html">`%[q%`</a></code> <code><a href="extractors.html">`%(q%`</a></code> <code><a href="extractors.html">`%:%`</a></code> </p>
-        </td>
-        <td><p>Extract vectors by index or value occurrence</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fINDexers.html">`%ci%`</a></code> <code><a href="fINDexers.html">`%ri%`</a></code> <code><a href="fINDexers.html">`%mi%`</a></code> <code><a href="fINDexers.html">`%ai%`</a></code> <code><a href="fINDexers.html">`%e%`</a></code> </p>
-        </td>
-        <td><p>Find row or column by name or index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="grapes-00-grapes.html">`%00%`</a></code> </p>
-        </td>
-        <td><p>Rose tinted infix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="insiders.html">`%[]%`</a></code> <code><a href="insiders.html">`%()%`</a></code> <code><a href="insiders.html">`%[)%`</a></code> <code><a href="insiders.html">`%(]%`</a></code> <code><a href="insiders.html">`%[.]%`</a></code> <code><a href="insiders.html">`%(.)%`</a></code> <code><a href="insiders.html">`%[.)%`</a></code> <code><a href="insiders.html">`%(.]%`</a></code> </p>
-        </td>
-        <td><p>Inside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="outsiders.html">`%][%`</a></code> <code><a href="outsiders.html">`%)(%`</a></code> <code><a href="outsiders.html">`%](%`</a></code> <code><a href="outsiders.html">`%)[%`</a></code> <code><a href="outsiders.html">`%].[%`</a></code> <code><a href="outsiders.html">`%).(%`</a></code> <code><a href="outsiders.html">`%].(%`</a></code> <code><a href="outsiders.html">`%).[%`</a></code> </p>
-        </td>
-        <td><p>Outside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="padders.html">`%[+%`</a></code> <code><a href="padders.html">`%+]%`</a></code> <code><a href="padders.html">`%[+]%`</a></code> </p>
-        </td>
-        <td><p>Padd vector by index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="regressors.html">`%/r%`</a></code> <code><a href="regressors.html">`%/1%`</a></code> <code><a href="regressors.html">`%/2%`</a></code> <code><a href="regressors.html">`%/3%`</a></code> <code><a href="regressors.html">`%/4%`</a></code> <code><a href="regressors.html">`%/n%`</a></code> </p>
-        </td>
-        <td><p>Regress vectors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trimmers.html">`%[-%`</a></code> <code><a href="trimmers.html">`%-]%`</a></code> <code><a href="trimmers.html">`%[-]%`</a></code> </p>
-        </td>
-        <td><p>Trim vector by index</p></td>
-      </tr>
-    </tbody>
+<span class='no'>counter</span> <span class='kw'>%++%</span> <span class='no'>increment</span></pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>counter</th>
+      <td><p>If <code>counter</code> and <code>increment</code> are both (signed/positive) integers <code>counter</code> will change by the value of <code>increment</code>.</p></td>
+    </tr>
+    <tr>
+      <th>increment</th>
+      <td><p>An integer value \(\neq 0\) to add to <code>counter</code></p></td>
+    </tr>
     </table>
-  </div>
+    
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># Signed increment</span>
+<span class='co'># Notice the difference between passing an object and a value for counter</span>
+
+<span class='co'># Value</span>
+(<span class='fl'>10</span> <span class='kw'>%+-%</span> -<span class='fl'>5</span>)
+(<span class='fl'>10</span> <span class='kw'>%+-%</span> -<span class='fl'>5</span>)
+
+<span class='co'># Object</span>
+<span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
+(<span class='no'>i</span> <span class='kw'>%+-%</span> -<span class='fl'>5</span>)
+(<span class='no'>i</span> <span class='kw'>%+-%</span> -<span class='fl'>5</span>)
+
+<span class='co'># This means we can use the infix in a while ... statement</span>
+<span class='co'># WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!</span>
+
+<span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fl'>10</span>
+<span class='kw'>while</span>(<span class='no'>i</span> <span class='kw'>&gt;</span> -<span class='fl'>5</span>){
+  <span class='no'>i</span> <span class='kw'>%+-%</span> -<span class='fl'>5</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>i</span>)
+}
+
+
+<span class='co'># Non-negative increment</span>
+<span class='co'># Notice the difference between passing an object and a value for counter</span>
+
+<span class='co'># Value</span>
+(<span class='fl'>0</span> <span class='kw'>%++%</span> <span class='fl'>5</span>)
+(<span class='fl'>0</span> <span class='kw'>%++%</span> <span class='fl'>5</span>)
+
+<span class='co'># Object</span>
+<span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
+(<span class='no'>i</span> <span class='kw'>%++%</span> <span class='fl'>5</span>)
+(<span class='no'>i</span> <span class='kw'>%++%</span> <span class='fl'>5</span>)
+
+<span class='co'># This means we can use the infix in a while ... statement</span>
+<span class='co'># WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!</span>
+
+<span class='no'>i</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span>
+<span class='kw'>while</span>(<span class='no'>i</span> <span class='kw'>&lt;</span> <span class='fl'>20</span>){
+<span class='no'>i</span> <span class='kw'>%++%</span> <span class='fl'>5</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>i</span>)
+}
+<span class='co'># }</span><div class='input'>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+            
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

@@ -6,6 +6,8 @@
 \alias{invctr-package}
 \title{invctr: Infix Functions For Vector Operations}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 An INFIX-only package! The invctr functions perform common and less common operations on vectors, data frames matrices and list objects:
     - Extracting a value (range), or, finding the indices of a value (range).
     - Trimming, or padding a vector with a value of your choice.
@@ -13,8 +15,16 @@ An INFIX-only package! The invctr functions perform common and less common opera
     - Set and membership operations.
     - General check & replace function for NAs, Inf and other values.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/FredHasselman/invctr}
+  \item Report bugs at \url{https://github.com/FredHasselman/invctr/issues}
+}
+
+}
 \author{
-\strong{Maintainer}: Fred Hasselman \email{f.hasselman@bsi.ru.nl}
+\strong{Maintainer}: Fred Hasselman \email{f.hasselman@bsi.ru.nl} (0000-0003-1384-8361)
 
 }
 \keyword{internal}

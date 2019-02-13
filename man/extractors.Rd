@@ -8,7 +8,12 @@
 \alias{\%]\%}
 \alias{\%f]\%}
 \alias{\%l]\%}
-\title{Extract vectors by index}
+\alias{\%q]\%}
+\alias{\%q)\%}
+\alias{\%[q\%}
+\alias{\%(q\%}
+\alias{\%:\%}
+\title{Extract vectors by index or value occurrence}
 \usage{
 x \%[f\% v
 
@@ -21,6 +26,16 @@ x \%]\% i
 x \%f]\% v
 
 x \%l]\% v
+
+x \%q]\% q
+
+x \%q)\% q
+
+x \%[q\% q
+
+x \%(q\% q
+
+x \%:\% j
 }
 \arguments{
 \item{x}{A vector}
@@ -28,12 +43,16 @@ x \%l]\% v
 \item{v}{A value of which the first or last occurrence in \code{x} will be used as an index}
 
 \item{i}{An index or two element vector \code{c(lo,hi)} indicating a range to extract}
+
+\item{q}{A percentile value (between `0` and `1`)}
+
+\item{j}{A character indicating to extract the first `f`, middle `m` or last `l` value of `x`.}
 }
 \value{
-A vector extracted from the front, rear, or, range of \code{x}. Either based on an index or the first or last occurrence of a value.
+A vector extracted from the front, rear, or, range of `x`. Either based on an index or the first or last occurrence of a value or the first, middle, or, ;ast element of a vector.
 }
 \description{
-Extract vector front/rear up and untill and index \code{i} or the first/last occurence of \code{v} in \code{x}.
+Extract front or rear of vector `x` up and untill an index `i`, the first or last occurence of a value `v`, or, extract values based on quantile `q`, first, middle, or, last index `j`.
 }
 \note{
 The function provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal.
@@ -52,8 +71,19 @@ x \%[\% 10
 # Extract rear by index
 x \%]\% 90
 
+# Extract rear by index
+x \%]\% 90
+
 # Extract by indices if a range is provided
 x \%]\% c(4,30)
 z \%[\% c(6,10)
+
+# Extract last/middle value of x
+x \%:\% "l"
+z \%:\% "m"
+
+# Extract by percentile
+x \%[q\% .975
+x \%q)\% .025
 
 }

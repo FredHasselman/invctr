@@ -52,11 +52,11 @@ Package `DescTools` provides similar functions
 5\%)(\%c(1,5)
 5\%).(\%c(1,5)
 
-# Closed interval left
+# Half-losed interval left
 5\%](\%c(1,5)
 5\%].(\%c(1,5)
 
-# Closed interval right
+# Half-losed interval right
 5\%)[\%c(1,5)
 5\%).[\%c(1,5)
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • invctr</title>
+<title>invctr: Infix Functions For Vector Operations — invctr-package • invctr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,15 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="invctr: Infix Functions For Vector Operations — invctr-package" />
+
+<meta property="og:description" content="
+An INFIX-only package! The invctr functions perform common and less common operations on vectors, data frames matrices and list objects:
+    - Extracting a value (range), or, finding the indices of a value (range).
+    - Trimming, or padding a vector with a value of your choice.
+    - Simple polynomial regression.
+    - Set and membership operations.
+    - General check &amp;amp; replace function for NAs, Inf and other values." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -50,7 +58,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -88,9 +96,6 @@
     <li>
       <a href="../articles/insiders.html">Finding and extracting values and indices</a>
     </li>
-    <li>
-      <a href="../articles/padders.html">Changing vectors and values: Replace, Add/Subtract, Trim, Pad</a>
-    </li>
   </ul>
 </li>
       </ul>
@@ -112,90 +117,44 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>invctr: Infix Functions For Vector Operations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FredHasselman/invctr/blob/master/R/invctr-package.R'><code>R/invctr-package.R</code></a></small>
+    <div class="hidden name"><code>invctr-package.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p><img src='figures/logo.png' align='right' /></p>
+<p>An INFIX-only package! The invctr functions perform common and less common operations on vectors, data frames matrices and list objects:
+    - Extracting a value (range), or, finding the indices of a value (range).
+    - Trimming, or padding a vector with a value of your choice.
+    - Simple polynomial regression.
+    - Set and membership operations.
+    - General check &amp; replace function for NAs, Inf and other values.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+        
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Counters.html">`%+-%`</a></code> <code><a href="Counters.html">`%++%`</a></code> </p>
-        </td>
-        <td><p>Counters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="extractors.html">`%[f%`</a></code> <code><a href="extractors.html">`%[l%`</a></code> <code><a href="extractors.html">`%[%`</a></code> <code><a href="extractors.html">`%]%`</a></code> <code><a href="extractors.html">`%f]%`</a></code> <code><a href="extractors.html">`%l]%`</a></code> <code><a href="extractors.html">`%q]%`</a></code> <code><a href="extractors.html">`%q)%`</a></code> <code><a href="extractors.html">`%[q%`</a></code> <code><a href="extractors.html">`%(q%`</a></code> <code><a href="extractors.html">`%:%`</a></code> </p>
-        </td>
-        <td><p>Extract vectors by index or value occurrence</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fINDexers.html">`%ci%`</a></code> <code><a href="fINDexers.html">`%ri%`</a></code> <code><a href="fINDexers.html">`%mi%`</a></code> <code><a href="fINDexers.html">`%ai%`</a></code> <code><a href="fINDexers.html">`%e%`</a></code> </p>
-        </td>
-        <td><p>Find row or column by name or index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="grapes-00-grapes.html">`%00%`</a></code> </p>
-        </td>
-        <td><p>Rose tinted infix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="insiders.html">`%[]%`</a></code> <code><a href="insiders.html">`%()%`</a></code> <code><a href="insiders.html">`%[)%`</a></code> <code><a href="insiders.html">`%(]%`</a></code> <code><a href="insiders.html">`%[.]%`</a></code> <code><a href="insiders.html">`%(.)%`</a></code> <code><a href="insiders.html">`%[.)%`</a></code> <code><a href="insiders.html">`%(.]%`</a></code> </p>
-        </td>
-        <td><p>Inside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="outsiders.html">`%][%`</a></code> <code><a href="outsiders.html">`%)(%`</a></code> <code><a href="outsiders.html">`%](%`</a></code> <code><a href="outsiders.html">`%)[%`</a></code> <code><a href="outsiders.html">`%].[%`</a></code> <code><a href="outsiders.html">`%).(%`</a></code> <code><a href="outsiders.html">`%].(%`</a></code> <code><a href="outsiders.html">`%).[%`</a></code> </p>
-        </td>
-        <td><p>Outside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="padders.html">`%[+%`</a></code> <code><a href="padders.html">`%+]%`</a></code> <code><a href="padders.html">`%[+]%`</a></code> </p>
-        </td>
-        <td><p>Padd vector by index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="regressors.html">`%/r%`</a></code> <code><a href="regressors.html">`%/1%`</a></code> <code><a href="regressors.html">`%/2%`</a></code> <code><a href="regressors.html">`%/3%`</a></code> <code><a href="regressors.html">`%/4%`</a></code> <code><a href="regressors.html">`%/n%`</a></code> </p>
-        </td>
-        <td><p>Regress vectors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trimmers.html">`%[-%`</a></code> <code><a href="trimmers.html">`%-]%`</a></code> <code><a href="trimmers.html">`%[-]%`</a></code> </p>
-        </td>
-        <td><p>Trim vector by index</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='https://github.com/FredHasselman/invctr'>https://github.com/FredHasselman/invctr</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/FredHasselman/invctr/issues'>https://github.com/FredHasselman/invctr/issues</a></p></li>
+</ul></div>
+    
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      
+      <li><a href="#see-also">See also</a></li>
+          </ul>
+
+    <h2>Author</h2>
+    <p><strong>Maintainer</strong>: Fred Hasselman <a href='mailto:f.hasselman@bsi.ru.nl'>f.hasselman@bsi.ru.nl</a> (0000-0003-1384-8361)</p>
   </div>
 </div>
 

@@ -15,6 +15,7 @@ x \%00\% y
 When your functions wear these rose tinted glasses, the world will appear to be a nicer, fluffier place.
 }
 \examples{
+
 Inf \%00\% NA
 
 numeric(0) \%00\% ''

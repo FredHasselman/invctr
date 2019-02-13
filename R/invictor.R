@@ -10,6 +10,7 @@
 #' @seealso purrrr::%||%
 #'
 #' @examples
+#'
 #' Inf %00% NA
 #'
 #' numeric(0) %00% ''
@@ -29,11 +30,11 @@
       if (length(x[i]) == 0) {
         l0 <- TRUE
       } else {
-        if (all(is.na(x[i]))) isna <- TRUE
-        if (all(is.nan(x[i]))) isnan <- TRUE
-        if (all(is.infinite(x[i]))) isinf <- TRUE
-        if (all(is.null(x[i]))) isnll <- TRUE
-        if (all(class(x[i]) %in% "try-error")) isTryError <- TRUE
+        if (all(is.na(x[i]))) {isna <- TRUE}
+        if (all(is.nan(x[i]))) {isnan <- TRUE}
+        if (all(is.infinite(x[i]))) {isinf <- TRUE}
+        if (all(is.null(x[i]))) {isnll <- TRUE}
+        if (all(class(x[i]) %in% "try-error")) {isTryError <- TRUE}
       }
       if (any(l0, isna, isnan, isinf, isnll, isTryError)) {
         x[i] <- y
@@ -43,18 +44,21 @@
   return(x)
 }
 
+# Extractors -----
 
-#' Extract vectors by index
+#' Extract vectors by index or value occurrence
 #'
-#' Extract vector front/rear up and untill and index \code{i} or the first/last occurence of \code{v} in \code{x}.
+#' @description Extract front or rear of vector `x` up and untill an index `i`, the first or last occurence of a value `v`, or, extract values based on quantile `q`, first, middle, or, last index `j`.
 #'
 #' @param x A vector
 #' @param i An index or two element vector \code{c(lo,hi)} indicating a range to extract
+#' @param j A character indicating to extract the first `f`, middle `m` or last `l` value of `x`.
 #' @param v A value of which the first or last occurrence in \code{x} will be used as an index
+#' @param q A percentile value (between `0` and `1`)
 #'
 #' @name extractors
 #'
-#' @return A vector extracted from the front, rear, or, range of \code{x}. Either based on an index or the first or last occurrence of a value.
+#' @return A vector extracted from the front, rear, or, range of `x`. Either based on an index or the first or last occurrence of a value or the first, middle, or, ;ast element of a vector.
 #'
 #' @examples
 #'
@@ -70,9 +74,20 @@
 #' # Extract rear by index
 #' x %]% 90
 #'
+#' # Extract rear by index
+#' x %]% 90
+#'
 #' # Extract by indices if a range is provided
 #' x %]% c(4,30)
 #' z %[% c(6,10)
+#'
+#' # Extract last/middle value of x
+#' x %:% "l"
+#' z %:% "m"
+#'
+#' # Extract by percentile
+#' x %[q% .975
+#' x %q)% .025
 #'
 NULL
 # > NULL
@@ -181,6 +196,86 @@ NULL
   }
 }
 
+#' Extract values at percentile and higher
+#'
+#' @export
+#' @rdname extractors
+#'
+`%q]%` <- function(x, q) {
+  if (is.vector(x)) {
+    i <- which(x>=stats::quantile(x=x,probs=q,na.rm = TRUE)) %00% NA
+    if (all(is.na(i))) {
+      stop("q was not found in x")
+    } else {
+      return(x[i])
+    }
+  }
+}
+
+#' Extract values higher than  percentile
+#'
+#' @export
+#' @rdname extractors
+#'
+`%q)%` <- function(x, q) {
+  if (is.vector(x)) {
+    i <- which(x>stats::quantile(x=x,probs=q,na.rm = TRUE)) %00% NA
+    if (all(is.na(i))) {
+      stop("q was not found in x")
+    } else {
+      return(x[i])
+    }
+  }
+}
+
+#' Extract values at percentile and smaller
+#'
+#' @export
+#' @rdname extractors
+#'
+`%[q%` <- function(x, q) {
+  if (is.vector(x)) {
+    i <- which(x<=stats::quantile(x=x,probs=q,na.rm = TRUE)) %00% NA
+    if (all(is.na(i))) {
+      stop("q was not found in x")
+    } else {
+      return(x[i])
+    }
+  }
+}
+
+#' Extract values smaller than percentile
+#'
+#' @export
+#' @rdname extractors
+#'
+`%(q%` <- function(x, q) {
+  if (is.vector(x)) {
+    i <- which(x<stats::quantile(x=x,probs=q,na.rm = TRUE)) %00% NA
+    if (all(is.na(i))) {
+      stop("q was not found in x")
+    } else {
+      return(x[i])
+    }
+  }
+}
+
+#' Extract first, middle or last value of vector
+#'
+#' @rdname extractors
+#' @export
+#'
+#'
+`%:%` <- function(x, j){
+  switch(j,
+         f = x[1],
+         m = x[round(NROW(x)/2)],
+         l = x[NROW(x)]
+  )
+}
+
+
+# Trimmers ----
 
 #' Trim vector by index
 #'
@@ -197,10 +292,10 @@ NULL
 #' x <- rnorm(100)
 #'
 #' # Trim front
-#' 5%[-%x
+#' x%[-%5
 #'
 #' # Trim rear
-#' 5%-]%x
+#' x%-]%5
 #'
 #' # Trim front + rear
 #' x%[-]%c(2,10)
@@ -217,7 +312,7 @@ NULL
 #' @export
 #'
 #'
-`%[-%` <- function(i, x) {
+`%[-%` <- function(x, i) {
   if (all(is.vector(x), is.wholenumber(i[1]))) {
     return(x[-c(1:i)])
   }
@@ -240,15 +335,22 @@ NULL
 #' @export
 #'
 `%[-]%` <- function(x, j) {
-  if (length(j) == 2) {
-    if (all(is.vector(x), is.wholenumber(j[1]), is.wholenumber(j[2]))) {
-      front <- floor(j[2] / 2)
-      rear <- ceiling(j[2] / 2)
-      return(c(x[-c(front, rear)]))
+  front <- rear <- 0
+  if (all(is.vector(x), is.wholenumber(j))) {
+    if (length(j) == 2) {
+      front <- j[1]
+      rear  <- j[2]
+    }
+    if (length(j) == 1) {
+      front <- floor(j/2)
+      rear  <- ceiling(j/2)
     }
   }
+  return(c(x[-c(1:front, (NROW(x)-rear+1):NROW(x))]))
 }
 
+
+# Padders ----
 
 #' Padd vector by index
 #'
@@ -264,9 +366,9 @@ NULL
 #' x <- rnorm(100)
 #'
 #' # Pad front with 10 zeros
-#' 10%[+%x
+#' x%[+%10
 #' # Same as
-#' c(10,0)%[+%x
+#' x%[+%c(10,0)
 #'
 #' # Pad rear with zeros
 #' x%+]%10
@@ -288,7 +390,7 @@ NULL
 #' @rdname padders
 #' @export
 #'
-`%[+%` <- function(j, x) {
+`%[+%` <- function(x,j) {
   if (all(is.vector(x), is.wholenumber(j[1]))) {
     if (length(j) == 2) {
       return(c(rep(j[2], j[1]), x))
@@ -361,6 +463,9 @@ NULL
 NULL
 # > NULL
 
+
+# Regressors ----
+
 #' Correlate x and y
 #' @rdname regressors
 #' @export
@@ -425,22 +530,15 @@ NULL
 }
 
 
-#' Signed increment
+#' Counters
 #'
-#' Increment an integer counter by an arbitrary (signed) interval.
-#'
-#' @param counter If \code{counter} and \code{increment} are both a (signed) integers \code{counter} will change by the value of \code{increment}.
+#' @param counter If \code{counter} and \code{increment} are both (signed/positive) integers \code{counter} will change by the value of \code{increment}.
 #' @param increment An integer value \eqn{\neq 0} to add to \code{counter}
 #'
-#' @export
-#' @author Fred Hasselman
-#'
-#' @seealso %++%
-#'
-#' @family auto counters
-#'
+#' @name Counters
 #' @examples
-#'
+#' \dontrun{
+#' # Signed increment
 #' # Notice the difference between passing an object and a value for counter
 #'
 #' # Value
@@ -455,7 +553,44 @@ NULL
 #' # This means we can use the infix in a while ... statement
 #' # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
 #'
-#' while(i > -3) i %+-% -5
+#' i <- 10
+#' while(i > -5){
+#'   i %+-% -5
+#'   print(i)
+#' }
+#'
+#'
+#' # Non-negative increment
+#' # Notice the difference between passing an object and a value for counter
+#'
+#' # Value
+#' (0 %++% 5)
+#' (0 %++% 5)
+#'
+#' # Object
+#' i <- 0
+#' (i %++% 5)
+#' (i %++% 5)
+#'
+#' # This means we can use the infix in a while ... statement
+#' # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
+#'
+#' i <- 0
+#' while(i < 20){
+#' i %++% 5
+#' print(i)
+#' }
+#'}
+#'
+NULL
+
+
+# Counters ----
+
+#' Signed increment
+#'
+#' @export
+#' @rdname Counters
 #'
 `%+-%` <- function(counter, increment) {
   if (any(is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment == 0)) {
@@ -479,35 +614,8 @@ NULL
 
 #'  Non-negative increment
 #'
-#' Increment a counter by an arbitrary interval greater than 0.
-#'
-#' @param counter If \code{counter} \eqn{\ge 0} and \code{increment} \eqn{> 0} and are both integers, \code{counter} will change by the value of \code{increment}.
-#' @param increment An integer value \eqn{> 0} to add to \code{counter}
-#'
 #' @export
-#' @author Fred Hasselman
-#'
-#' @seealso %+-%
-#'
-#' @family auto counters
-#'
-#' @examples
-#'
-#' # Notice the difference between passing an object and a value for counter
-#'
-#' # Value
-#' (0 %++% 5)
-#' (0 %++% 5)
-#'
-#' # Object
-#' i <- 0
-#' (i %+-% 5)
-#' (i %+-% 5)
-#'
-#' # This means we can use the infix in a while ... statement
-#' # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
-#'
-#' while(i < 20) i %+-% 5
+#' @rdname Counters
 #'
 `%++%` <- function(counter, increment) {
   if (any(is.na(counter %00% NA) | is.na(increment %00% NA) | !is.wholenumber(counter) | !is.wholenumber(increment) | increment <= 0 | counter < 0)) {
@@ -526,10 +634,10 @@ NULL
 
 #' Inside interval
 #'
-#' Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
+#' Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted, when the `.`-versions are used.
 #'
 #' @param x A vector
-#' @param j A range
+#' @param j A 2-element numeric vector indicating a range
 #'
 #' @note Package `DescTools` provides similar functions
 #'
@@ -560,6 +668,8 @@ NULL
 # >NULL
 
 
+# Insiders ----
+
 #'  In closed interval
 #'
 #' @rdname insiders
@@ -586,7 +696,7 @@ NULL
   }
 }
 
-#'  In closed interval (left)
+#'  In half-closed interval (left)
 #'
 #' @rdname insiders
 #' @export
@@ -599,7 +709,7 @@ NULL
   }
 }
 
-#'  In closed interval (right)
+#'  In half-closed interval (right)
 #'
 #' @rdname insiders
 #' @export
@@ -633,7 +743,7 @@ NULL
     x[x%()%j]
 }
 
-#'  Return x in closed interval (left)
+#'  Return x in half-closed interval (left)
 #'
 #' @rdname insiders
 #' @export
@@ -643,7 +753,7 @@ NULL
   x[x%[)%j]
 }
 
-#'  Return x in closed interval (right)
+#'  Return x in half-closed interval (right)
 #'
 #' @rdname insiders
 #' @export
@@ -653,6 +763,9 @@ NULL
   x[x%(]%j]
 }
 
+
+
+# Outsiders -----
 
 #' Outside interval
 #'
@@ -677,11 +790,11 @@ NULL
 #' 5%)(%c(1,5)
 #' 5%).(%c(1,5)
 #'
-#' # Closed interval left
+#' # Half-losed interval left
 #' 5%](%c(1,5)
 #' 5%].(%c(1,5)
 #'
-#' # Closed interval right
+#' # Half-losed interval right
 #' 5%)[%c(1,5)
 #' 5%).[%c(1,5)
 #'
@@ -709,7 +822,7 @@ NULL
   return(!x%[]%j)
 }
 
-#'  Not in closed interval (left)
+#'  Not in half-closed interval (left)
 #'
 #' @rdname outsiders
 #' @export
@@ -719,7 +832,7 @@ NULL
   return(!x%(]%j)
 }
 
-#'  Not in closed interval (right)
+#'  Not in half-closed interval (right)
 #'
 #' @rdname outsiders
 #' @export
@@ -749,7 +862,7 @@ NULL
   return(x[!x%[]%j])
 }
 
-#'  Return x not in closed interval (left)
+#'  Return x not in half-closed interval (left)
 #'
 #' @rdname outsiders
 #' @export
@@ -759,7 +872,7 @@ NULL
   return(x[!x%(]%j])
 }
 
-#'  Return x not in closed interval (right)
+#'  Return x not in half-closed interval (right)
 #'
 #' @rdname outsiders
 #' @export
@@ -769,6 +882,8 @@ NULL
   return(x[!x%[)%j])
 }
 
+
+# fINDexers -----
 
 #' Find row or column by name or index
 #'
@@ -786,61 +901,61 @@ NULL
 #'
 #' @examples
 #'
-# # data frame
-# d <- data.frame(x=1:5,y=6,row.names=paste0("ri",5:1))
-#
-# "y" %ci% d # y is the 2nd column of d
-#   2 %ci% d # the name of the second column of d is "y"
-#
-#     2 %ri% d
-# "ri5" %ri% d
-#
-# # change column name
-#  colnames(d)["y" %ci% d] <- "Yhat"
-#
-# # mi works on data frames, matrices, tiblles, etc.
-#  c(5,2) %mi% d
-#  list(r="ri1",c=2) %mi% d
-#
-# # matrix row and column indices
-# m <- matrix(1:10,ncol=2, dimnames = list(paste0("ri",0:4),c("xx","yy")))
-#
-#  1 %ci% m
-#  5 %ci% m # no column 5
-#
-#  1 %ri% m
-#  5 %ri% m
-#
-#  c(5,1)%mi%m
-#  c(1,5)%mi%m
-#
-# # For list and vector objects ri and ci return the same values
-# l <- list(a=1:100,b=LETTERS)
-#
-#   2 %ci% l
-# "a" %ci% l
-#
-#   2 %ri% l
-# "a" %ri% l
-#
-# # named vector
-# v <- c("first" = 1, "2nd" = 1000)
-#
-# "2nd" %ci% v
-#     1 %ci% v
-#
-# "2nd" %ri% v
-#     1 %ri% v
-#
-# # get all indices of the number 1 in v
-#  1 %ai% v
-#
-# # get all indices of the number 3 and 6 in d
-#  c(3,6) %ai% d
-#
-# # get all indices of values: Z < -1.96 and Z > 1.96
-#  Z <- rnorm(100)
-#  Z[Z%)(%c(-1.96,1.96)] %ai% Z
+#' # data frame
+#' d <- data.frame(x=1:5,y=6,row.names=paste0("ri",5:1))
+#'
+#' "y" %ci% d # y is the 2nd column of d
+#'   2 %ci% d # the name of the second column of d is "y"
+#'
+#'     2 %ri% d
+#' "ri5" %ri% d
+#'
+#' # change column name
+#'  colnames(d)["y" %ci% d] <- "Yhat"
+#'
+#' # mi works on data frames, matrices, tiblles, etc.
+#'  c(5,2) %mi% d
+#'  list(r="ri1",c=2) %mi% d
+#'
+#' # matrix row and column indices
+#' m <- matrix(1:10,ncol=2, dimnames = list(paste0("ri",0:4),c("xx","yy")))
+#'
+#'  1 %ci% m
+#'  5 %ci% m # no column 5
+#'
+#'  1 %ri% m
+#'  5 %ri% m
+#'
+#'  c(5,1)%mi%m
+#'  c(1,5)%mi%m
+#'
+#' # For list and vector objects ri and ci return the same values
+#' l <- list(a=1:100,b=LETTERS)
+#'
+#'   2 %ci% l
+#' "a" %ci% l
+#'
+#'   2 %ri% l
+#' "a" %ri% l
+#'
+#' # named vector
+#' v <- c("first" = 1, "2nd" = 1000)
+#'
+#' "2nd" %ci% v
+#'     1 %ci% v
+#'
+#' "2nd" %ri% v
+#'     1 %ri% v
+#'
+#' # get all indices of the number 1 in v
+#'  1 %ai% v
+#'
+#' # get all indices of the number 3 and 6 in d
+#'  c(3,6) %ai% d
+#'
+#' # get all indices of values: Z < -1.96 and Z > 1.96
+#'  Z <- rnorm(100)
+#'  Z[Z%)(%c(-1.96,1.96)] %ai% Z
 #'
 #'
 NULL
@@ -934,10 +1049,12 @@ NULL
 
 #' Is element of... with multiple input types
 #'
-#' @param x A vector, data frame of list containing numbers and/or characters that could be elements of y
+#' @param x A vector, data frame or list containing numbers and/or characters that could be elements of y
 #' @param y An object that could contain values in x
 #'
 #' @return Logical vector indicating which x are an element of y
+#'
+#' @rdname fINDexers
 #'
 #' @export
 #'
@@ -954,6 +1071,9 @@ NULL
  return(outTable)
 }
 
+
+# Helpers ----
+
 coliter <- function(cin,table){
 
   if(is.null(dim(cin))){
@@ -962,6 +1082,8 @@ coliter <- function(cin,table){
   }
 
   out <- list()
+  #names(table) <- paste0("e.",unlist(table))
+  #table <- as.data.frame(table)
   for(c in 1:NCOL(cin)){
     if(all(is.numeric(cin[,c]%00%NaN))){
       cin[,c] <- cin[,c]%00%NaN
@@ -971,15 +1093,16 @@ coliter <- function(cin,table){
     }
     elements <- as.list(cin[,c])
     names(elements) <- paste0(cin[,c])
-    out[[c]] <- lapply(elements, function(n){
-      outTable <- table
+    out[[c]] <- plyr::ldply(elements, function(n){
+      outTable <- as.data.frame(table)
       for(ct in 1:NCOL(table)){
         outTable[,ct] <- table[,ct]%in%n
       }
       return(outTable)
       })
   }
-  names(out) <- paste0(NCOL(cin))
+  names(out) <- colnames(cin)
+  plyr::ldply(out,.id="variable")
   return(out)
 }
 
@@ -1009,12 +1132,14 @@ coliter <- function(cin,table){
 is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
   if(!is.numeric(x)|all(is.na(x%00%NA))){
     return(FALSE)
-    } else {
-      # NAs to FALSE
-      NAind <- is.na(x%00%NA)
+  } else {
+    # NAs to FALSE
+    NAind <- is.na(x%00%NA)
+    if(sum(NAind)>0){
       x[NAind] <- 0.5
-      return(abs(x[NAind] - round(x[NAind])) < tol)
-      }
+    }
+    return(abs(x - round(x)) < tol)
+  }
 }
 
 

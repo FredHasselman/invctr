@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • invctr</title>
+<title>Tidy eval helpers — tidyeval • invctr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,13 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Tidy eval helpers — tidyeval" />
+
+<meta property="og:description" content="These functions provide tidy eval-compatible ways to capture
+symbols (`sym()`, `syms()`, `ensym()`), expressions (`expr()`,
+`exprs()`, `enexpr()`), and quosures (`quo()`, `quos()`, `enquo()`).
+To learn more about tidy eval and how to use these tools, read
+&amp;lt;http://rlang.tidyverse.org/articles/tidy-evaluation.html&amp;gt;" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -50,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -88,9 +94,6 @@
     <li>
       <a href="../articles/insiders.html">Finding and extracting values and indices</a>
     </li>
-    <li>
-      <a href="../articles/padders.html">Changing vectors and values: Replace, Add/Subtract, Trim, Pad</a>
-    </li>
   </ul>
 </li>
       </ul>
@@ -112,90 +115,31 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Tidy eval helpers</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FredHasselman/invctr/blob/master/R/utils-tidy-eval.R'><code>R/utils-tidy-eval.R</code></a></small>
+    <div class="hidden name"><code>tidyeval.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>These functions provide tidy eval-compatible ways to capture
+symbols (`sym()`, `syms()`, `ensym()`), expressions (`expr()`,
+`exprs()`, `enexpr()`), and quosures (`quo()`, `quos()`, `enquo()`).
+To learn more about tidy eval and how to use these tools, read
+&lt;http://rlang.tidyverse.org/articles/tidy-evaluation.html&gt;</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+        
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Counters.html">`%+-%`</a></code> <code><a href="Counters.html">`%++%`</a></code> </p>
-        </td>
-        <td><p>Counters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="extractors.html">`%[f%`</a></code> <code><a href="extractors.html">`%[l%`</a></code> <code><a href="extractors.html">`%[%`</a></code> <code><a href="extractors.html">`%]%`</a></code> <code><a href="extractors.html">`%f]%`</a></code> <code><a href="extractors.html">`%l]%`</a></code> <code><a href="extractors.html">`%q]%`</a></code> <code><a href="extractors.html">`%q)%`</a></code> <code><a href="extractors.html">`%[q%`</a></code> <code><a href="extractors.html">`%(q%`</a></code> <code><a href="extractors.html">`%:%`</a></code> </p>
-        </td>
-        <td><p>Extract vectors by index or value occurrence</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fINDexers.html">`%ci%`</a></code> <code><a href="fINDexers.html">`%ri%`</a></code> <code><a href="fINDexers.html">`%mi%`</a></code> <code><a href="fINDexers.html">`%ai%`</a></code> <code><a href="fINDexers.html">`%e%`</a></code> </p>
-        </td>
-        <td><p>Find row or column by name or index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="grapes-00-grapes.html">`%00%`</a></code> </p>
-        </td>
-        <td><p>Rose tinted infix</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="insiders.html">`%[]%`</a></code> <code><a href="insiders.html">`%()%`</a></code> <code><a href="insiders.html">`%[)%`</a></code> <code><a href="insiders.html">`%(]%`</a></code> <code><a href="insiders.html">`%[.]%`</a></code> <code><a href="insiders.html">`%(.)%`</a></code> <code><a href="insiders.html">`%[.)%`</a></code> <code><a href="insiders.html">`%(.]%`</a></code> </p>
-        </td>
-        <td><p>Inside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="outsiders.html">`%][%`</a></code> <code><a href="outsiders.html">`%)(%`</a></code> <code><a href="outsiders.html">`%](%`</a></code> <code><a href="outsiders.html">`%)[%`</a></code> <code><a href="outsiders.html">`%].[%`</a></code> <code><a href="outsiders.html">`%).(%`</a></code> <code><a href="outsiders.html">`%].(%`</a></code> <code><a href="outsiders.html">`%).[%`</a></code> </p>
-        </td>
-        <td><p>Outside interval</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="padders.html">`%[+%`</a></code> <code><a href="padders.html">`%+]%`</a></code> <code><a href="padders.html">`%[+]%`</a></code> </p>
-        </td>
-        <td><p>Padd vector by index</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="regressors.html">`%/r%`</a></code> <code><a href="regressors.html">`%/1%`</a></code> <code><a href="regressors.html">`%/2%`</a></code> <code><a href="regressors.html">`%/3%`</a></code> <code><a href="regressors.html">`%/4%`</a></code> <code><a href="regressors.html">`%/n%`</a></code> </p>
-        </td>
-        <td><p>Regress vectors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trimmers.html">`%[-%`</a></code> <code><a href="trimmers.html">`%-]%`</a></code> <code><a href="trimmers.html">`%[-]%`</a></code> </p>
-        </td>
-        <td><p>Trim vector by index</p></td>
-      </tr>
-    </tbody>
-    </table>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+                </ul>
+
   </div>
 </div>
 

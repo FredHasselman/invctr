@@ -7,16 +7,16 @@
 \alias{\%[-]\%}
 \title{Trim vector by index}
 \usage{
-i \%[-\% x
+x \%[-\% i
 
 x \%-]\% i
 
 x \%[-]\% j
 }
 \arguments{
-\item{i}{A 1 element vector by which the rear of \code{x} will be trimmed}
-
 \item{x}{A vector}
+
+\item{i}{A 1 element vector by which the rear of \code{x} will be trimmed}
 
 \item{j}{A one, or two element numeric vector. One element: Trim front by \code{floor(i/2)} and rear by \code{ceiling(i/2)}. Two elements: Trim \code{i[1]} from the front and \code{i[2]} from the rear.}
 }
@@ -37,10 +37,10 @@ Trim vector front + rear
 x <- rnorm(100)
 
 # Trim front
-5\%[-\%x
+x\%[-\%5
 
 # Trim rear
-5\%-]\%x
+x\%-]\%5
 
 # Trim front + rear
 x\%[-]\%c(2,10)

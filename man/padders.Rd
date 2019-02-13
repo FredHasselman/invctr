@@ -7,16 +7,16 @@
 \alias{\%[+]\%}
 \title{Padd vector by index}
 \usage{
-j \%[+\% x
+x \%[+\% j
 
 x \%+]\% j
 
 x \%[+]\% j
 }
 \arguments{
-\item{j}{A one, or two element vector. One element: Pad \code{front} or \code{rear} by \code{j} \code{0}s, or, \code{front} by \code{floor(j/2)} and rear by \code{ceiling(j/2)}. Two elements: Pad \code{j[1]} times the value passed in \code{j[2]}.}
-
 \item{x}{A vector}
+
+\item{j}{A one, or two element vector. One element: Pad \code{front} or \code{rear} by \code{j} \code{0}s, or, \code{front} by \code{floor(j/2)} and rear by \code{ceiling(j/2)}. Two elements: Pad \code{j[1]} times the value passed in \code{j[2]}.}
 }
 \value{
 A padded version of \code{x}
@@ -35,9 +35,9 @@ Pad vector front + rear
 x <- rnorm(100)
 
 # Pad front with 10 zeros
-10\%[+\%x
+x\%[+\%10
 # Same as
-c(10,0)\%[+\%x
+x\%[+\%c(10,0)
 
 # Pad rear with zeros
 x\%+]\%10
