@@ -2,6 +2,8 @@
 **INVCTR**
 ---
 
+[![Build Status](https://travis-ci.org/FredHasselman/invctr.svg?branch=master)](https://travis-ci.org/FredHasselman/invctr)
+
 # Vector operations between grapes <img src="man/figures/logo.png" align="right" alt="" width="120" />
 
 This package contains only `infix` functions (`grapes-function-grapes`), most of them shorten the syntax for common vector operations, such as finding indices and extracting values from vectors.
