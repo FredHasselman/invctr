@@ -1,8 +1,11 @@
 ## Test environments
 * local OS X install, R 3.5.2
-* ubuntu 12.04 (on travis-ci), R 3.5.2
+* ubuntu 14.04.5 LTS (on travis-ci), R 3.5.2
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs, no WARNINGs and no NOTEs
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+
+## revdep_check results
+No reverse dependencies (yet)
 

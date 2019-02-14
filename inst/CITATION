@@ -1,0 +1,14 @@
+citHeader("To cite casnet in publications use:")
+
+citEntry(entry = "Manual",
+   title = "invctr: Infix Functions For Vector Operations",
+   author = person("Fred", "Hasselman", role = "aut", email = "f.hasselman@pwo.ru.nl"),
+   year = "2018",
+   note = "R package version 0.1.0",
+   url = "https://github.com/FredHasselman/invctr",
+   key = "invctr-package",
+ textVersion  =
+  paste("Fred Hasselman (2018).",
+        "invctr: Infix Functions For Vector Operations",
+        "URL https://github.com/FredHasselman/invctr")
+)

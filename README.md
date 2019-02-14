@@ -16,5 +16,5 @@ The main function classes are:
 * _Padders & Trimmers_ - Padd or Trim the front and/or rear of a vector
 * _Regressors_ - Perform simple polynomial regression on vectors
 
-In addition, some infix functions for very specific tasks are provided, e.g., _the rose tinted infix_ `%00%` provides a means to deal with functions that return `NA`, `Inf`, `NULL`or other error/exception values by turning them into a user specified value, or, `x %e% y` which will check whether elements of `x` are in `y` irrespective of the object type of `x` ND `Y`.
+In addition, some infix functions for very specific tasks are provided, e.g., _the rose tinted infix_ `%00%` provides a means to deal with functions that return `NA`, `Inf`, `NULL`or other error/exception values by turning them into a user specified value.
 
