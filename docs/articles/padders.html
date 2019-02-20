@@ -84,7 +84,7 @@
       <h1>Changing vectors and values: Replace, Add/Subtract, Trim, Pad</h1>
                         <h4 class="author">Fred Hasselman</h4>
             
-            <h4 class="date">2019-02-13</h4>
+            <h4 class="date">2019-02-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/FredHasselman/invctr/blob/master/vignettes/padders.Rmd"><code>vignettes/padders.Rmd</code></a></small>
       <div class="hidden name"><code>padders.Rmd</code></div>
@@ -262,6 +262,66 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">0</span></code></pre></div>
 </div>
 </div>
+<div id="using-counter-infix-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#using-counter-infix-functions" class="anchor"></a>Using counter infix functions</h2>
+<p>The counter infix functions can add or subtract values from an input source. This can be a value, or an object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="co"># Signed increment</span>
+ <span class="co"># Notice the difference between passing an object and a value for counter</span>
+
+ <span class="co"># Value</span>
+ (<span class="dv">11</span> <span class="op">%+-%</span><span class="st"> </span><span class="op">-</span><span class="dv">5</span>)
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">6</span>
+ (<span class="dv">11</span> <span class="op">%+-%</span><span class="st">  </span><span class="dv">5</span>)
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">16</span>
+
+ <span class="co"># Object</span>
+ i &lt;-<span class="st"> </span><span class="dv">11</span>
+ (i <span class="op">%+-%</span><span class="st"> </span><span class="op">-</span><span class="dv">5</span>)
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">6</span>
+ (i <span class="op">%+-%</span><span class="st">  </span><span class="dv">5</span>)
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">11</span>
+
+ <span class="co"># This means we can use the infix in a while ... statement</span>
+ <span class="co"># </span><span class="al">WARNING</span><span class="co">: As is the case for any while ... statement, be careful not to create an infinite loop!</span>
+ i &lt;-<span class="st"> </span><span class="dv">5</span>
+ <span class="cf">while</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="op">-</span><span class="dv">5</span>){
+   i <span class="op">%+-%</span><span class="st"> </span><span class="op">-</span><span class="dv">1</span>
+   <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(i)
+ }
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">4</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">3</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">2</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">1</span>
+<span class="op">&gt;</span><span class="st"> </span>Warning <span class="cf">in</span> i <span class="op">%+-%</span><span class="st"> </span><span class="op">-</span><span class="dv">1</span><span class="op">:</span><span class="st"> </span>Positive valued counter changed <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sign">sign</a></span> (counter <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span>)<span class="op">!</span>
+<span class="er">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">0</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="op">-</span><span class="dv">1</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="op">-</span><span class="dv">2</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="op">-</span><span class="dv">3</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="op">-</span><span class="dv">4</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="op">-</span><span class="dv">5</span></code></pre></div>
+<pre class="(r)"><code> # Non-negative increment
+ # Notice the difference between passing an object and a value for counter
+
+ # Value
+ (0 %++% 5)
+ (0 %++% 5)
+
+ # Object
+ i &lt;- 0
+ (i %++% 5)
+ (i %++% 5)
+
+ # This means we can use the infix in a while ... statement
+ # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
+
+ i &lt;- 0
+ while(i &lt; 20){
+ i %++% 5
+ print(i)
+ }
+ </code></pre>
+</div>
 <div id="padding-vectors" class="section level2">
 <h2 class="hasAnchor">
 <a href="#padding-vectors" class="anchor"></a>Padding vectors</h2>
@@ -327,6 +387,7 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#replace-values">Replace values</a></li>
+      <li><a href="#using-counter-infix-functions">Using counter infix functions</a></li>
       <li><a href="#padding-vectors">Padding vectors</a></li>
       <li><a href="#trimming-vectors">Trimming vectors</a></li>
       </ul>

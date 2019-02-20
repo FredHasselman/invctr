@@ -529,6 +529,7 @@ NULL
   }
 }
 
+# Counters ----
 
 #' Counters
 #'
@@ -583,9 +584,6 @@ NULL
 #'}
 #'
 NULL
-
-
-# Counters ----
 
 #' Signed increment
 #'

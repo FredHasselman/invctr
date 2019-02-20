@@ -4,7 +4,7 @@ author: "Fred Hasselman"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Changing vectors and values: Replace, Add/Subtract, Trim, Pad}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -66,6 +66,59 @@ numeric(0) %00% "lenghth 0!!"
          0 %00% "lenghth 0!!"
 
 ```
+
+## Using counter infix functions
+
+The counter infix functions can add or subtract values from an input source. This can be a value, or an object. 
+
+```{r}
+ # Signed increment
+ # Notice the difference between passing an object and a value for counter
+
+ # Value
+ (11 %+-% -5)
+ (11 %+-%  5)
+
+ # Object
+ i <- 11
+ (i %+-% -5)
+ (i %+-%  5)
+
+ # This means we can use the infix in a while ... statement
+ # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
+ i <- 5
+ while(i > -5){
+   i %+-% -1
+   print(i)
+ }
+```
+
+ 
+ 
+```(r)
+ # Non-negative increment
+ # Notice the difference between passing an object and a value for counter
+
+ # Value
+ (0 %++% 5)
+ (0 %++% 5)
+
+ # Object
+ i <- 0
+ (i %++% 5)
+ (i %++% 5)
+
+ # This means we can use the infix in a while ... statement
+ # WARNING: As is the case for any while ... statement, be careful not to create an infinite loop!
+
+ i <- 0
+ while(i < 20){
+ i %++% 5
+ print(i)
+ }
+ 
+```
+
 
 
 
