@@ -65,6 +65,11 @@ x[x %[]% c(5,9)]
 # Easier to use the special functions
 x %[.]% c(5,9)
 
+# Extract first, last, or, middle value of x
+x %:% "f"
+x %:% "m"
+x %:% "l"
+
 # Simulate a sample from a standard normal distribution
 set.seed(4321)
 Zscore <- rnorm(100)
@@ -89,6 +94,18 @@ z <- letters
 
 # Extract front by first occurrence of value "n"
 z %[f% "n"
+
+# Extact first, middle, last of z
+z %:% "f"
+z %:% "m"
+z %:% "l"
+
+# Extract by percentile
+seq(1,10,.5) %(q% .5 # infix
+seq(1,10,.5)[seq(1,10,.5) < quantile(seq(1,10,.5),.5)] # regular syntax
+
+seq(1,10,.5) %q]% .5 # infix
+seq(1,10,.5)[seq(1,10,.5) >= quantile(seq(1,10,.5),.5)] # regular syntax
 
 # Random uniform integers
 set.seed(123)
@@ -117,7 +134,6 @@ x[6:10] # regular
 
 z%[%c(6,10) #infix
 z[6:10] #regular
-
 ```
 
 ## Finding and extracting indices

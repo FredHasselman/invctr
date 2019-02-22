@@ -95,7 +95,7 @@ The counter infix functions can add or subtract values from an input source. Thi
 
  
  
-```(r)
+```{r}
  # Non-negative increment
  # Notice the difference between passing an object and a value for counter
 

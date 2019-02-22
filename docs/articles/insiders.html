@@ -84,7 +84,7 @@
       <h1>Finding and extracting values and indices</h1>
                         <h4 class="author">Fred Hasselman</h4>
             
-            <h4 class="date">2019-02-20</h4>
+            <h4 class="date">2019-02-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/FredHasselman/invctr/blob/master/vignettes/insiders.Rmd"><code>vignettes/insiders.Rmd</code></a></small>
       <div class="hidden name"><code>insiders.Rmd</code></div>
@@ -142,6 +142,14 @@ x[x <span class="op">%[]%</span><span class="st"> </span><span class="kw"><a hre
 x <span class="op">%[.]%</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">5</span>,<span class="dv">9</span>)
 <span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">8</span> <span class="dv">9</span>
 
+<span class="co"># Extract first, last, or, middle value of x</span>
+x <span class="op">%:%</span><span class="st"> "f"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">0</span>
+x <span class="op">%:%</span><span class="st"> "m"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">4</span>
+x <span class="op">%:%</span><span class="st"> "l"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="dv">9</span>
+
 <span class="co"># Simulate a sample from a standard normal distribution</span>
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">4321</span>)
 Zscore &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">100</span>)
@@ -165,6 +173,25 @@ z &lt;-<span class="st"> </span>letters
 <span class="co"># Extract front by first occurrence of value "n"</span>
 z <span class="op">%[f%</span><span class="st"> "n"</span>
 <span class="op">&gt;</span><span class="st">  </span>[<span class="dv">1</span>] <span class="st">"a"</span> <span class="st">"b"</span> <span class="st">"c"</span> <span class="st">"d"</span> <span class="st">"e"</span> <span class="st">"f"</span> <span class="st">"g"</span> <span class="st">"h"</span> <span class="st">"i"</span> <span class="st">"j"</span> <span class="st">"k"</span> <span class="st">"l"</span> <span class="st">"m"</span> <span class="st">"n"</span>
+
+<span class="co"># Extact first, middle, last of z</span>
+z <span class="op">%:%</span><span class="st"> "f"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="st">"a"</span>
+z <span class="op">%:%</span><span class="st"> "m"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="st">"m"</span>
+z <span class="op">%:%</span><span class="st"> "l"</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="st">"z"</span>
+
+<span class="co"># Extract by percentile</span>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>) <span class="op">%(q%</span><span class="st"> </span>.<span class="dv">5</span> <span class="co"># infix</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="fl">1.0</span> <span class="fl">1.5</span> <span class="fl">2.0</span> <span class="fl">2.5</span> <span class="fl">3.0</span> <span class="fl">3.5</span> <span class="fl">4.0</span> <span class="fl">4.5</span> <span class="fl">5.0</span>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>)[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>) <span class="op">&lt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>),.<span class="dv">5</span>)] <span class="co"># regular syntax</span>
+<span class="op">&gt;</span><span class="st"> </span>[<span class="dv">1</span>] <span class="fl">1.0</span> <span class="fl">1.5</span> <span class="fl">2.0</span> <span class="fl">2.5</span> <span class="fl">3.0</span> <span class="fl">3.5</span> <span class="fl">4.0</span> <span class="fl">4.5</span> <span class="fl">5.0</span>
+
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>) <span class="op">%q]%</span><span class="st"> </span>.<span class="dv">5</span> <span class="co"># infix</span>
+<span class="op">&gt;</span><span class="st">  </span>[<span class="dv">1</span>]  <span class="fl">5.5</span>  <span class="fl">6.0</span>  <span class="fl">6.5</span>  <span class="fl">7.0</span>  <span class="fl">7.5</span>  <span class="fl">8.0</span>  <span class="fl">8.5</span>  <span class="fl">9.0</span>  <span class="fl">9.5</span> <span class="fl">10.0</span>
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>)[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>) <span class="op">&gt;=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/quantile">quantile</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span>,<span class="dv">10</span>,.<span class="dv">5</span>),.<span class="dv">5</span>)] <span class="co"># regular syntax</span>
+<span class="op">&gt;</span><span class="st">  </span>[<span class="dv">1</span>]  <span class="fl">5.5</span>  <span class="fl">6.0</span>  <span class="fl">6.5</span>  <span class="fl">7.0</span>  <span class="fl">7.5</span>  <span class="fl">8.0</span>  <span class="fl">8.5</span>  <span class="fl">9.0</span>  <span class="fl">9.5</span> <span class="fl">10.0</span>
 
 <span class="co"># Random uniform integers</span>
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">123</span>)

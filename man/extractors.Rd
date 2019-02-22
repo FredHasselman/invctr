@@ -83,7 +83,11 @@ x \%:\% "l"
 z \%:\% "m"
 
 # Extract by percentile
-x \%[q\% .975
-x \%q)\% .025
+seq(1,10,.5) \%(q\% .5 # infix
+seq(1,10,.5)[seq(1,10,.5) < quantile(seq(1,10,.5),.5)] # regular syntax
+
+seq(1,10,.5) \%q]\% .5 # infix
+seq(1,10,.5)[seq(1,10,.5) >= quantile(seq(1,10,.5),.5)] # regular syntax
+
 
 }

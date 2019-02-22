@@ -86,8 +86,12 @@
 #' z %:% "m"
 #'
 #' # Extract by percentile
-#' x %[q% .975
-#' x %q)% .025
+#' seq(1,10,.5) %(q% .5 # infix
+#' seq(1,10,.5)[seq(1,10,.5) < quantile(seq(1,10,.5),.5)] # regular syntax
+#'
+#' seq(1,10,.5) %q]% .5 # infix
+#' seq(1,10,.5)[seq(1,10,.5) >= quantile(seq(1,10,.5),.5)] # regular syntax
+#'
 #'
 NULL
 # > NULL
@@ -203,7 +207,7 @@ NULL
 #'
 `%q]%` <- function(x, q) {
   if (is.vector(x)) {
-    i <- which(x>=stats::quantile(x=x,probs=q,na.rm = TRUE)) %00% NA
+    i <- which(x>=stats::quantile(x=x, probs=q,na.rm = TRUE)) %00% NA
     if (all(is.na(i))) {
       stop("q was not found in x")
     } else {
@@ -395,7 +399,7 @@ NULL
     if (length(j) == 2) {
       return(c(rep(j[2], j[1]), x))
     } else {
-      return(c(x, rep(0, j[1])))
+      return(c(rep(0, j[1]), x))
     }
   }
 }
