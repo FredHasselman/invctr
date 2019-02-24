@@ -96,6 +96,9 @@ Polynomial regression of degree 4
     <li>
       <a href="../articles/insiders.html">Finding and extracting values and indices</a>
     </li>
+    <li>
+      <a href="../articles/padders.html">Changing vectors and values: Replace, Add/Subtract, Trim, Pad</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -172,7 +175,7 @@ Polynomial regression of degree 4
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>x</span> + <span class='no'>x</span>^<span class='fl'>2</span> + <span class='no'>x</span>^<span class='fl'>3</span>
 
 <span class='co'># Correlate x with y</span>
-<span class='no'>x</span><span class='kw'>%/r%</span><span class='no'>y</span></div><div class='output co'>#&gt; [1] 0.8343496</div><div class='input'>
+<span class='no'>x</span><span class='kw'>%/r%</span><span class='no'>y</span></div><div class='output co'>#&gt; [1] 0.8851748</div><div class='input'>
 <span class='co'># Polynomial regression degree 1 .. 4</span>
 <span class='no'>x</span><span class='kw'>%/1%</span><span class='no'>y</span></div><div class='output co'>#&gt; 
 #&gt; Call:
@@ -180,36 +183,36 @@ Polynomial regression of degree 4
 #&gt; 
 #&gt; Coefficients:
 #&gt;               (Intercept)  stats::poly(x, order = 1)  
-#&gt;                     1.602                     38.867  
+#&gt;                     1.802                     37.633  
 #&gt; </div><div class='input'><span class='no'>x</span><span class='kw'>%/2%</span><span class='no'>y</span></div><div class='output co'>#&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = y ~ stats::poly(x, order = 2))
 #&gt; 
 #&gt; Coefficients:
 #&gt;                (Intercept)  stats::poly(x, order = 2)1  
-#&gt;                      1.602                      38.867  
+#&gt;                      1.802                      37.633  
 #&gt; stats::poly(x, order = 2)2  
-#&gt;                     21.050  
+#&gt;                     15.704  
 #&gt; </div><div class='input'><span class='no'>x</span><span class='kw'>%/3%</span><span class='no'>y</span></div><div class='output co'>#&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = y ~ stats::poly(x, order = 3))
 #&gt; 
 #&gt; Coefficients:
 #&gt;                (Intercept)  stats::poly(x, order = 3)1  
-#&gt;                      1.602                      38.867  
+#&gt;                      1.802                      37.633  
 #&gt; stats::poly(x, order = 3)2  stats::poly(x, order = 3)3  
-#&gt;                     21.050                      14.707  
+#&gt;                     15.704                      12.027  
 #&gt; </div><div class='input'><span class='no'>x</span><span class='kw'>%/4%</span><span class='no'>y</span></div><div class='output co'>#&gt; 
 #&gt; Call:
 #&gt; stats::lm(formula = y ~ stats::poly(x, order = 4))
 #&gt; 
 #&gt; Coefficients:
 #&gt;                (Intercept)  stats::poly(x, order = 4)1  
-#&gt;                  1.602e+00                   3.887e+01  
+#&gt;                  1.802e+00                   3.763e+01  
 #&gt; stats::poly(x, order = 4)2  stats::poly(x, order = 4)3  
-#&gt;                  2.105e+01                   1.471e+01  
+#&gt;                  1.570e+01                   1.203e+01  
 #&gt; stats::poly(x, order = 4)4  
-#&gt;                  2.591e-17  
+#&gt;                  2.940e-15  
 #&gt; </div><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/anova'>anova</a></span>(<span class='no'>x</span><span class='kw'>%/1%</span><span class='no'>y</span>,<span class='no'>x</span><span class='kw'>%/2%</span><span class='no'>y</span>,<span class='no'>x</span><span class='kw'>%/3%</span><span class='no'>y</span>,<span class='no'>x</span><span class='kw'>%/4%</span><span class='no'>y</span>)</div><div class='output co'>#&gt; Analysis of Variance Table
 #&gt; 
@@ -217,11 +220,11 @@ Polynomial regression of degree 4
 #&gt; Model 2: y ~ stats::poly(x, order = 2)
 #&gt; Model 3: y ~ stats::poly(x, order = 3)
 #&gt; Model 4: y ~ stats::poly(x, order = 4)
-#&gt;   Res.Df    RSS Df Sum of Sq          F Pr(&gt;F)    
-#&gt; 1     98 659.39                                   
-#&gt; 2     97 216.30  1    443.09 3.8968e+32 &lt;2e-16 ***
-#&gt; 3     96   0.00  1    216.30 1.9023e+32 &lt;2e-16 ***
-#&gt; 4     95   0.00  1      0.00 6.0000e-04 0.9807    
+#&gt;   Res.Df    RSS Df Sum of Sq          F    Pr(&gt;F)    
+#&gt; 1     98 391.26                                      
+#&gt; 2     97 144.64  1    246.61 2.5371e+32 &lt; 2.2e-16 ***
+#&gt; 3     96   0.00  1    144.65 1.4881e+32 &lt; 2.2e-16 ***
+#&gt; 4     95   0.00  1      0.00 8.8921e+00  0.003639 ** 
 #&gt; ---
 #&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</div><div class='input'>
 <span class='co'># Order n</span>
@@ -232,17 +235,17 @@ Polynomial regression of degree 4
 #&gt; 
 #&gt; Coefficients:
 #&gt;                       (Intercept)   stats::poly(x, order = yn[[2]])1  
-#&gt;                         1.602e+00                          3.887e+01  
+#&gt;                         1.802e+00                          3.763e+01  
 #&gt;  stats::poly(x, order = yn[[2]])2   stats::poly(x, order = yn[[2]])3  
-#&gt;                         2.105e+01                          1.471e+01  
+#&gt;                         1.570e+01                          1.203e+01  
 #&gt;  stats::poly(x, order = yn[[2]])4   stats::poly(x, order = yn[[2]])5  
-#&gt;                         2.591e-17                          9.358e-16  
+#&gt;                         2.940e-15                          2.105e-15  
 #&gt;  stats::poly(x, order = yn[[2]])6   stats::poly(x, order = yn[[2]])7  
-#&gt;                        -5.888e-17                          9.523e-17  
+#&gt;                         4.383e-16                          9.318e-16  
 #&gt;  stats::poly(x, order = yn[[2]])8   stats::poly(x, order = yn[[2]])9  
-#&gt;                        -4.275e-16                         -7.105e-16  
+#&gt;                        -1.693e-15                          2.009e-15  
 #&gt; stats::poly(x, order = yn[[2]])10  
-#&gt;                        -9.019e-16  
+#&gt;                         2.449e-16  
 #&gt; </div><div class='input'>
 </div></pre>
   </div>
