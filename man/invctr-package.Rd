@@ -8,12 +8,15 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right'}}
 
-An INFIX-only package! The invctr functions perform common and less common operations on vectors, data frames matrices and list objects:
+Vector operations between grapes: An infix-only package! The 'invctr' functions perform common and less common operations on vectors, data frames matrices and list objects:
     - Extracting a value (range), or, finding the indices of a value (range).
     - Trimming, or padding a vector with a value of your choice.
     - Simple polynomial regression.
     - Set and membership operations.
     - General check & replace function for NAs, Inf and other values.
+}
+\examples{
+cat("OK")
 }
 \seealso{
 Useful links:

@@ -20,4 +20,10 @@ Wholenumber check
 \note{
 This code was found in the examples of \link[base]{is.integer}.
 }
+\examples{
+
+is.wholenumber(1.2)
+is.wholenumber(1)
+
+}
 \keyword{internal}

@@ -20,4 +20,7 @@ symbols (`sym()`, `syms()`, `ensym()`), expressions (`expr()`,
 To learn more about tidy eval and how to use these tools, read
 <http://rlang.tidyverse.org/articles/tidy-evaluation.html>
 }
+\examples{
+cat("OK")
+}
 \keyword{internal}

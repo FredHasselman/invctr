@@ -26,6 +26,11 @@ a warning, also keep the computed result.
 \details{
 TRY ... CATCH
 }
+\examples{
+
+try_CATCH(sqrt(-1))
+
+}
 \author{
 Martin Maechler; Copyright (C) 2010-2012  The R Core Team
 }

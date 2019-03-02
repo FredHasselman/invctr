@@ -1109,15 +1109,6 @@ coliter <- function(cin,table){
 }
 
 
-# needs work
-`%>>%` <- function(input,output){
-  if(is.list(input)){
-    if(is.character(output)){
-      eval(parse(text = paste0(output)))
-    }
-  }
-}
-
 
 #' Wholenumber check
 #'
@@ -1128,6 +1119,11 @@ coliter <- function(cin,table){
 #' @export
 #'
 #' @keywords internal
+#'
+#' @examples
+#'
+#' is.wholenumber(1.2)
+#' is.wholenumber(1)
 #'
 #' @note This code was found in the examples of \link[base]{is.integer}.
 #'
@@ -1164,6 +1160,10 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
 #' @author Martin Maechler; Copyright (C) 2010-2012  The R Core Team
 #' @export
 #' @keywords internal
+#'
+#' @examples
+#'
+#' try_CATCH(sqrt(-1))
 #'
 try_CATCH <- function(expr) {
   W <- NULL
