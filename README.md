@@ -1,6 +1,6 @@
----
+----
 **INVCTR**
----
+----
 
 [![Build Status](https://travis-ci.org/FredHasselman/invctr.svg?branch=master)](https://travis-ci.org/FredHasselman/invctr)
 [![Build status](https://ci.appveyor.com/api/projects/status/npsu6l1isdi7nbxo/branch/master?svg=true)](https://ci.appveyor.com/project/FredHasselman/invctr/branch/master)
