@@ -1,8 +1,7 @@
-This version fixes issues requested by CRAN:
-* Remove capitalisation in package description 
-* Add single quoting of software/API names
-* Add examples to all .Rd files
-* Enable automatic testing
+This version fixes an issue with Copyright noted by CRAN:
+* During package development, I used a function written by Martin Maechler, with Copyright (C) 2010-2012 The R Core Team. It was still present in the source file, without mentioning the Copyright holder as such in the package DESCRIPTION. Thank you for noticing this error!
+* I Removed the function from the source file, there is no need to include it in the package.
+
 
 ## Test environments
 * local OS X install, R 3.5.2

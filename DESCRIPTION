@@ -1,7 +1,7 @@
 Package: invctr
 Title: Infix Functions For Vector Operations
 Version: 0.1.0
-Authors@R: person(given = "Fred", family = "Hasselman", email = "f.hasselman@bsi.ru.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1384-8361"))
+Authors@R: c(person(given = "Fred", family = "Hasselman", email = "f.hasselman@bsi.ru.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1384-8361")))
 Maintainer: Fred Hasselman <f.hasselman@bsi.ru.nl>
 Description: Vector operations between grapes: An infix-only package! The 'invctr' functions perform common and less common operations on vectors, data frames matrices and list objects:
     - Extracting a value (range), or, finding the indices of a value (range).

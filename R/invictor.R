@@ -605,8 +605,8 @@ NULL
     if (counter < 0 & result >= 0) {
       warning("Negative valued counter changed sign (counter >= 0)!")
     }
-    obj <- try_CATCH(as.numeric(deparse(substitute(counter))))
-    if (is.na(obj$value)) {
+    obj <- suppressWarnings(as.numeric(deparse(substitute(counter)))%00%NA)
+    if (is.na(obj)) {
       eval(parse(text = paste(deparse(substitute(counter)), " <<- result")))
     } else {
       return(result)
@@ -624,8 +624,8 @@ NULL
     stop("Don't know how to work with counter and/or increment argument.\n Did you use integers?")
   } else {
     result <- counter + increment
-    obj <- try_CATCH(as.numeric(deparse(substitute(counter))))
-    if (is.na(obj$value)) {
+    obj <- suppressWarnings(as.numeric(deparse(substitute(counter)))%00%NA) #try_CATCH(as.numeric(deparse(substitute(counter))))
+    if (is.na(obj)) {
       eval(parse(text = paste(deparse(substitute(counter)), " <<- result")))
     } else {
       return(result)
@@ -1138,45 +1138,6 @@ is.wholenumber <- function(x, tol = .Machine$double.eps^0.5) {
     }
     return(abs(x - round(x)) < tol)
   }
-}
-
-
-#' TRY ... CATCH
-#'
-#' @description
-#'  In longer simulations, aka computer experiments,
-#'  you may want to
-#'  1) catch all errors and warnings (and continue)
-#'  2) store the error or warning messages
-#'
-#'  Here's a solution  (see \R-help mailing list, Dec 9, 2010):
-#'
-#' Catch *and* save both errors and warnings, and in the case of
-#' a warning, also keep the computed result.
-#'
-#' @title tryCatch both warnings (with value) and errors
-#' @param expr an \R expression to evaluate
-#' @return a list with 'value' and 'warning', where value' may be an error caught.
-#' @author Martin Maechler; Copyright (C) 2010-2012  The R Core Team
-#' @export
-#' @keywords internal
-#'
-#' @examples
-#'
-#' try_CATCH(sqrt(-1))
-#'
-try_CATCH <- function(expr) {
-  W <- NULL
-  w.handler <- function(w) { # warning handler
-    W <<- w
-    invokeRestart("muffleWarning")
-  }
-  list(
-    value = withCallingHandlers(tryCatch(expr, error = function(e) e),
-      warning = w.handler
-    ),
-    warning = W
-  )
 }
 
 
