@@ -23,8 +23,10 @@ numeric(0) \%00\% ''
 NA \%00\% 0
 
 NaN \%00\% NA
+c(1, NaN) \%00\% NA
 
 NULL \%00\% NA
+c(1, NULL) \%00\% NA # can't see second element
 
 }
 \seealso{

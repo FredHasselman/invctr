@@ -1,18 +1,41 @@
-This version fixes an issue with Copyright noted by CRAN:
-* During package development, I used a function written by Martin Maechler, with Copyright (C) 2010-2012 The R Core Team. It was still present in the source file, without mentioning the Copyright holder as such in the package DESCRIPTION. Thank you for noticing this error!
-* I Removed the function from the source file, there is no need to include it in the package.
-
+This version fixes the issue with the change to HTML5 in documentation pages in R version 4.2.0 as noted by CRAN.
 
 ## Test environments
-* local OS X install, R 3.5.2
-* ubuntu 14.04.5 LTS (on travis-ci), R 3.5.2
-* win-builder (devel and release)
-* appveyor: Platform: x86_64-w64-mingw32/x64 (64-bit) Running under: Windows Server 2012 R2 x64 (build 9600)
+* local OS X 12.4 install, R 4.2.1
+* R Hub builder:
+   - Fedora Linux, R-devel, clang, gfortran 
+   - Windows Server 2022, R-devel, 64 bit
+   - Ubuntu Linux 20.04.1 LTS, R-release, GCC
+* win-builder (devel and release):
+   - x86_64-w64-mingw32 (64-bit)
 
 ## R CMD check results
-0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+0 Errors
+0 Warnings
+
+and 1 expected NOTE on all platforms.
+
+This note concerns a change of the e-mail address of the maintainer (me):
+
+New maintainer: Fred Hasselman <fred.hasselman@ru.nl>
+Old maintainer(s): Fred Hasselman <f.hasselman@bsi.ru.nl>
+
+
+In addition, there were platform/R version specific NOTES
+
+R Hub builder:
+- Fedora Linux, R-devel, clang, gfortran: "Skipping checking HTML validation: no command 'tidy' found"
+- Windows Server 2022, R-devel, 64 bit: "Found the following files/directories: 'lastMiKTeXException'"
+
+These were not found on Ubuntu Linux 20.04.1 LTS, R-release, GCC
+
+Win builder x86_64-w64-mingw32 (64-bit):
+- R version 4.2.1 (2022-06-23 ucrt): "Non-standard file/directory found at top level:  'pkgdown'"
+
+This was not found on R Under development (unstable) (2022-08-14 r82716 ucrt)
+
 
 ## revdep_check results
-No reverse dependencies (yet)
-
-
+OK: 0
+BROKEN: 0
+Total time: <1 min

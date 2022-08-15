@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/FredHasselman/invctr.svg?branch=master)](https://travis-ci.org/FredHasselman/invctr)
 [![Build status](https://ci.appveyor.com/api/projects/status/npsu6l1isdi7nbxo/branch/master?svg=true)](https://ci.appveyor.com/project/FredHasselman/invctr/branch/master)
 [![CRAN status](https://www.r-pkg.org/badges/version/invctr)](https://cran.r-project.org/package=invctr)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 
 # Vector operations between grapes <img src="man/figures/logo.png" align="right" alt="" width="120" />
 

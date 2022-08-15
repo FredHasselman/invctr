@@ -18,28 +18,30 @@
 #' NA %00% 0
 #'
 #' NaN %00% NA
+#' c(1, NaN) %00% NA
 #'
 #' NULL %00% NA
+#' c(1, NULL) %00% NA # can't see second element
 #'
 `%00%` <- function(x, y) {
   if (length(x) == 0) {
     x <- y
   } else {
-    for (i in seq_along(x)) {
-      l0 <- isna <- isnan <- isinf <- isnll <- isTryError <- FALSE
-      if (length(x[i]) == 0) {
-        l0 <- TRUE
-      } else {
-        if (all(is.na(x[i]))) {isna <- TRUE}
-        if (all(is.nan(x[i]))) {isnan <- TRUE}
-        if (all(is.infinite(x[i]))) {isinf <- TRUE}
-        if (all(is.null(x[i]))) {isnll <- TRUE}
-        if (all(class(x[i]) %in% "try-error")) {isTryError <- TRUE}
+      for (i in seq_along(x)) {
+        l0 <- isna <- isnan <- isinf <- isnull <- isTryError <- FALSE
+        if (length(x[i]) == 0) {
+          l0 <- TRUE
+        } else {
+          if (all(is.na(x[i]))) {isna <- TRUE}
+          if (all(is.nan(x[i]))) {isnan <- TRUE}
+          if (all(is.infinite(x[i]))) {isinf <- TRUE}
+          if (all(is.null(x[i]))) {isnull <- TRUE}
+          if (all(class(x[i]) %in% "try-error")) {isTryError <- TRUE}
+        }
+        if (any(l0, isna, isnan, isinf, isnull, isTryError)) {
+          x[i] <- y
+        }
       }
-      if (any(l0, isna, isnan, isinf, isnll, isTryError)) {
-        x[i] <- y
-      }
-    }
   }
   return(x)
 }

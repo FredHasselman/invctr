@@ -6,14 +6,9 @@
 \alias{invctr-package}
 \title{invctr: Infix Functions For Vector Operations}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Vector operations between grapes: An infix-only package! The 'invctr' functions perform common and less common operations on vectors, data frames matrices and list objects:
-    - Extracting a value (range), or, finding the indices of a value (range).
-    - Trimming, or padding a vector with a value of your choice.
-    - Simple polynomial regression.
-    - Set and membership operations.
-    - General check & replace function for NAs, Inf and other values.
+Vector operations between grapes: An infix-only package! The 'invctr' functions perform common and less common operations on vectors, data frames matrices and list objects: - Extracting a value (range), or, finding the indices of a value (range). - Trimming, or padding a vector with a value of your choice. - Simple polynomial regression. - Set and membership operations. - General check & replace function for NAs, Inf and other values.
 }
 \examples{
 cat("OK")
@@ -27,7 +22,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Fred Hasselman \email{f.hasselman@bsi.ru.nl} (0000-0003-1384-8361)
+\strong{Maintainer}: Fred Hasselman \email{fred.hasselman@ru.nl} (\href{https://orcid.org/0000-0003-1384-8361}{ORCID})
 
 }
 \keyword{internal}
