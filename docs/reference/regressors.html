@@ -109,7 +109,7 @@ Polynomial regression of degree 4
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Correlate x with y</span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">%/r%</span><span class="va">y</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7379621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.8884375</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Polynomial regression degree 1 .. 4</span></span></span>
 <span class="r-in"><span><span class="va">x</span><span class="op">%/1%</span><span class="va">y</span></span></span>
@@ -119,7 +119,7 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               (Intercept)  stats::poly(x, order = 1)  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      1.34                      45.59  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    0.4576                    25.3894  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">x</span><span class="op">%/2%</span><span class="va">y</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -128,9 +128,9 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                (Intercept)  stats::poly(x, order = 2)1  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       1.34                       45.59  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     0.4576                     25.3894  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> stats::poly(x, order = 2)2  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      33.90  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     2.5157  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">x</span><span class="op">%/3%</span><span class="va">y</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -139,9 +139,9 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                (Intercept)  stats::poly(x, order = 3)1  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       1.34                       45.59  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     0.4576                     25.3894  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> stats::poly(x, order = 3)2  stats::poly(x, order = 3)3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      33.90                       24.27  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     2.5157                     12.8736  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">x</span><span class="op">%/4%</span><span class="va">y</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -150,11 +150,11 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                (Intercept)  stats::poly(x, order = 4)1  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  1.340e+00                   4.559e+01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  4.576e-01                   2.539e+01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> stats::poly(x, order = 4)2  stats::poly(x, order = 4)3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  3.390e+01                   2.427e+01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  2.516e+00                   1.287e+01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> stats::poly(x, order = 4)4  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  2.820e-15  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 -2.068e-15  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">x</span><span class="op">%/1%</span><span class="va">y</span>,<span class="va">x</span><span class="op">%/2%</span><span class="va">y</span>,<span class="va">x</span><span class="op">%/3%</span><span class="va">y</span>,<span class="va">x</span><span class="op">%/4%</span><span class="va">y</span><span class="op">)</span></span></span>
@@ -164,11 +164,11 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model 2: y ~ stats::poly(x, order = 2)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model 3: y ~ stats::poly(x, order = 3)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model 4: y ~ stats::poly(x, order = 4)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Res.Df     RSS Df Sum of Sq          F  Pr(&gt;F)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     98 1738.01                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     97  589.07  1   1148.94 8.6803e+32 &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     96    0.00  1    589.07 4.4504e+32 &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     95    0.00  1      0.00 6.0094e+00 0.01606 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Res.Df    RSS Df Sum of Sq          F  Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     98 172.06                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     97 165.73  1     6.329 4.3861e+30 &lt; 2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     96   0.00  1   165.729 1.1486e+32 &lt; 2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     95   0.00  1     0.000 2.9634e+00 0.08842 .  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-in"><span></span></span>
@@ -181,17 +181,17 @@ Polynomial regression of degree 4
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                       (Intercept)   stats::poly(x, order = yn[[2]])1  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         1.340e+00                          4.559e+01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         4.576e-01                          2.539e+01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  stats::poly(x, order = yn[[2]])2   stats::poly(x, order = yn[[2]])3  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         3.390e+01                          2.427e+01  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         2.516e+00                          1.287e+01  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  stats::poly(x, order = yn[[2]])4   stats::poly(x, order = yn[[2]])5  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         2.820e-15                         -2.269e-16  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        -2.068e-15                          8.807e-16  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  stats::poly(x, order = yn[[2]])6   stats::poly(x, order = yn[[2]])7  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        -1.988e-15                         -2.440e-15  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        -9.857e-16                         -4.085e-16  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  stats::poly(x, order = yn[[2]])8   stats::poly(x, order = yn[[2]])9  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         3.222e-17                         -1.233e-15  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        -3.216e-16                         -2.718e-16  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> stats::poly(x, order = yn[[2]])10  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         3.040e-16  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         1.442e-15  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

@@ -123,32 +123,33 @@
 <span class="r-in"><span><span class="co"># Extract front by index</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%[%</span> <span class="fl">10</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -1.05911107  0.21076504  0.01396083 -1.04393509  0.03218128 -0.14163579</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.56953879 -0.33270695 -1.31592154 -1.82151090</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -1.2017985436  0.4537332981  0.1532085579  2.1089950066  0.1208789253</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6]  1.5758361846 -0.0007621336  0.7896706548 -2.1260111756 -0.4298844516</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract rear by index</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%]%</span> <span class="fl">90</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.3825760  1.2238421  0.7718121 -0.4588196  1.2200944  0.7667757</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.3190353 -1.2901086 -0.7827239 -0.3491098  0.1497596</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.27033707  0.15209239  0.52799677 -0.06134549  0.60200748 -0.89914705</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.89929777 -0.74458760  0.65993858 -1.27516150 -1.06000027</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract rear by index</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%]%</span> <span class="fl">90</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.3825760  1.2238421  0.7718121 -0.4588196  1.2200944  0.7667757</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.3190353 -1.2901086 -0.7827239 -0.3491098  0.1497596</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1.27033707  0.15209239  0.52799677 -0.06134549  0.60200748 -0.89914705</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -0.89929777 -0.74458760  0.65993858 -1.27516150 -1.06000027</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract by indices if a range is provided</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%]%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">30</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] -1.04393509  0.03218128 -0.14163579 -0.56953879 -0.33270695 -1.31592154</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] -1.82151090  0.78659203 -2.50330474 -1.33534086  0.98244799  1.17610614</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13]  0.52626433 -0.09003325  1.08843791 -2.02696414  1.18429261  0.61854936</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19]  0.45963263  1.30944014 -0.13818654 -0.12052013  0.84485752 -0.19640971</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] -0.03614495 -1.04873371  0.36412298</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  2.1089950066  0.1208789253  1.5758361846 -0.0007621336  0.7896706548</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] -2.1260111756 -0.4298844516 -0.0732276521  0.4222680055  0.3463359505</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11]  0.6267511765 -1.2602427177  0.1642181296 -0.0516431854  0.0481492816</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16]  0.6157574414 -0.9711281595 -0.5597194379 -0.6313802676  0.7996003364</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] -0.1296557005 -0.0292610482  1.0235248157  0.8822601830 -0.3471153038</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26]  1.3213862136 -0.5453674345</span>
 <span class="r-in"><span><span class="va">z</span> <span class="op">%[%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "f" "g" "h" "i" "j"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract last/middle value of x</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%:%</span> <span class="st">"l"</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1497596</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -1.06</span>
 <span class="r-in"><span><span class="va">z</span> <span class="op">%:%</span> <span class="st">"m"</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "m"</span>
 <span class="r-in"><span></span></span>
