@@ -24,11 +24,11 @@ A padded version of \code{x}
 \description{
 Padd vector by index
 
-Pad vector front
+Pad vector front \verb{\%[+\%}
 
-Pad vector rear
+Pad vector rear \verb{\%+]\%}
 
-Pad vector front + rear
+Pad vector front + rear \verb{\%[+]\%}
 }
 \examples{
 

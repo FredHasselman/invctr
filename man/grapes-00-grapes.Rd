@@ -9,7 +9,7 @@ x \%00\% y
 \arguments{
 \item{x}{If (an element of) \code{x} is any of \code{Inf,-Inf,NA,NaN,NULL,length(x)==0}, it will return/replace the value of \code{y}; otherwise \code{x}.}
 
-\item{y}{The value to return/replace for \code{x} in case of catastrophy \code{>00<}}
+\item{y}{The value to return/replace for \code{x} in case of catastrophe \code{>00<}}
 }
 \description{
 When your functions wear these rose tinted glasses, the world will appear to be a nicer, fluffier place.
@@ -30,7 +30,7 @@ c(1, NULL) \%00\% NA # can't see second element
 
 }
 \seealso{
-purrrr::%||%
+purrrr::\%||\%
 }
 \author{
 Fred Hasselman

@@ -10,7 +10,7 @@
 \alias{\%).(\%}
 \alias{\%].(\%}
 \alias{\%).[\%}
-\title{Outside interval}
+\title{Values outside interval}
 \usage{
 x \%][\% j
 
@@ -37,10 +37,26 @@ x \%).[\% j
 logical vector of length x, or, values of x outside the range j
 }
 \description{
-Decide if a value \code{x} falls outside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
+Values outside interval
+
+Not in closed interval: \verb{\%][\%}
+
+Not in open interval: \verb{\%)(\%}
+
+Not in half-closed interval (left): \verb{\%](\%}
+
+Not in half-closed interval (right): \verb{\%)[\%}
+
+Return x not in closed interval: \verb{\%].[\%}
+
+Return x not in open interval: \verb{\%).(\%}
+
+Return x not in half-closed interval (left): \verb{\%].(\%}
+
+Return x not in half-closed interval (right): \verb{\%).[\%}
 }
 \note{
-Package `DescTools` provides similar functions
+Package \code{DescTools} provides similar functions
 }
 \examples{
 

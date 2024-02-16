@@ -10,7 +10,7 @@
 \alias{\%(.)\%}
 \alias{\%[.)\%}
 \alias{\%(.]\%}
-\title{Inside interval}
+\title{Values inside interval}
 \usage{
 x \%[]\% j
 
@@ -37,10 +37,26 @@ x \%(.]\% j
 Logical vector of length \code{x}, or, values in the range \code{j}
 }
 \description{
-Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted, when the `.`-versions are used.
+Values inside interval
+
+In closed interval: \verb{\%[]\%}
+
+In open interval: \verb{\%()\%}
+
+In half-closed interval (left): \verb{\%[)\%}
+
+In half-closed interval (right): \verb{\%(]\%}
+
+Return x in closed interval: \verb{\%[.]\%}
+
+Return x in open interval: \verb{\%(.)\%}
+
+Return x in half-closed interval (left): \verb{\%[.)\%}
+
+Return x in half-closed interval (right): \verb{\%(.]\%}
 }
 \note{
-Package `DescTools` provides similar functions
+Package \code{DescTools} provides similar functions
 }
 \examples{
 

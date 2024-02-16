@@ -42,15 +42,15 @@ Logical vector indicating which x are an element of y
 \description{
 Find row or column by name or index
 
-Column by name or index
+Column by name or index: \verb{\%ci\%}
 
-Row by name or number
+Row by name or number: \verb{\%ri\%}
 
-Matrix cell index by name or number
+Matrix cell index by name or number: \verb{\%mi\%}
 
-Return all indices of a (range of) values
+Return all indices of a (range of) values: \verb{\%ai\%}
 
-Is element of... with multiple input types
+Is element of... with multiple input types: \verb{\%e\%}
 }
 \examples{
 

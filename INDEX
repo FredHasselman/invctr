@@ -1,9 +1,0 @@
-%00%                                            Rose tinted infix
-Counters                                        Counters
-extractors                                      Extract vectors by index or value occurrence
-fINDexers                                       Find row or column by name or index
-insiders                                        Inside interval
-outsiders                                       Outside interval
-padders                                         Padd vector by index
-regressors                                      Regress vectors
-trimmers                                        Trim vector by index

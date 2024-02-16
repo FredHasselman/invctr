@@ -18,9 +18,9 @@ counter \%++\% increment
 \description{
 Counters
 
-Signed increment
+Signed increment \verb{\%+-\%}
 
-Non-negative increment
+Non-negative increment \verb{\%++\%}
 }
 \examples{
 \dontrun{

@@ -1,7 +1,7 @@
 #' Rose tinted infix
 #'
 #' @param x If (an element of) \code{x} is any of \code{Inf,-Inf,NA,NaN,NULL,length(x)==0}, it will return/replace the value of \code{y}; otherwise \code{x}.
-#' @param y The value to return/replace for \code{x} in case of catastrophy \code{>00<}
+#' @param y The value to return/replace for \code{x} in case of catastrophe \code{>00<}
 #'
 #' @export
 #' @author Fred Hasselman
@@ -27,21 +27,21 @@
   if (length(x) == 0) {
     x <- y
   } else {
-      for (i in seq_along(x)) {
-        l0 <- isna <- isnan <- isinf <- isnull <- isTryError <- FALSE
-        if (length(x[i]) == 0) {
-          l0 <- TRUE
-        } else {
-          if (all(is.na(x[i]))) {isna <- TRUE}
-          if (all(is.nan(x[i]))) {isnan <- TRUE}
-          if (all(is.infinite(x[i]))) {isinf <- TRUE}
-          if (all(is.null(x[i]))) {isnull <- TRUE}
-          if (all(class(x[i]) %in% "try-error")) {isTryError <- TRUE}
-        }
-        if (any(l0, isna, isnan, isinf, isnull, isTryError)) {
-          x[i] <- y
-        }
+    for (i in seq_along(x)) {
+      l0 <- isna <- isnan <- isinf <- isnull <- isTryError <- FALSE
+      if (length(x[i]) == 0) {
+        l0 <- TRUE
+      } else {
+        if (all(is.na(x[i]))) {isna <- TRUE}
+        if (all(is.nan(x[i]))) {isnan <- TRUE}
+        if (all(is.infinite(x[i]))) {isinf <- TRUE}
+        if (all(is.null(x[i]))) {isnull <- TRUE}
+        if (all(class(x[i]) %in% "try-error")) {isTryError <- TRUE}
       }
+      if (any(l0, isna, isnan, isinf, isnull, isTryError)) {
+        x[i] <- y
+      }
+    }
   }
   return(x)
 }
@@ -49,8 +49,6 @@
 # Extractors -----
 
 #' Extract vectors by index or value occurrence
-#'
-#' @description Extract front or rear of vector `x` up and untill an index `i`, the first or last occurence of a value `v`, or, extract values based on quantile `q`, first, middle, or, last index `j`.
 #'
 #' @param x A vector
 #' @param i An index or two element vector \code{c(lo,hi)} indicating a range to extract
@@ -60,7 +58,7 @@
 #'
 #' @name extractors
 #'
-#' @return A vector extracted from the front, rear, or, range of `x`. Either based on an index or the first or last occurrence of a value or the first, middle, or, ;ast element of a vector.
+#' @return A vector extracted from the front, rear, or, range of `x`. Either based on an index or the first or last occurrence of a value or the first, middle, or, last element of a vector.
 #'
 #' @examples
 #'
@@ -98,9 +96,7 @@
 NULL
 # > NULL
 
-
-#' Extract front by first occurrence of a value
-#'
+#'  Extract front by first occurrence of a value `%[f%`
 #'
 #' @export
 #'
@@ -117,7 +113,7 @@ NULL
   }
 }
 
-#' Extract front by last occurrence of a value
+#' Extract front by last occurrence of a value `%[l%`
 #'
 #' @export
 #'
@@ -134,7 +130,7 @@ NULL
   }
 }
 
-#' Extract vector front by index
+#' Extract vector front by index `%[%`
 #'
 #' @rdname extractors
 #' @export
@@ -153,7 +149,7 @@ NULL
   }
 }
 
-#' Extract vector rear
+#' Extract vector rear by index `%]%`
 #'
 #' @export
 #' @rdname extractors
@@ -162,15 +158,15 @@ NULL
   if (all(is.vector(x))){
     if (all(i %[]% c(1, NROW(x)))){
       if(length(i)==2){
-          return(x[i[1]:i[2]])
-        } else {
-          return(x[i:NROW(x)])
+        return(x[i[1]:i[2]])
+      } else {
+        return(x[i:NROW(x)])
       }
     }
   }
 }
 
-#' Extract first occurrence of a value to vector rear
+#' Extract first occurrence of a value to vector rear `%f]%`
 #'
 #' @export
 #' @rdname extractors
@@ -186,7 +182,7 @@ NULL
   }
 }
 
-#' Extract last occurrence of a value to vector rear
+#' Extract last occurrence of a value to vector rear `%l]%`
 #'
 #' @export
 #' @rdname extractors
@@ -202,7 +198,7 @@ NULL
   }
 }
 
-#' Extract values at percentile and higher
+#' Extract values at percentile and higher `%q]%`
 #'
 #' @export
 #' @rdname extractors
@@ -218,7 +214,7 @@ NULL
   }
 }
 
-#' Extract values higher than  percentile
+#' Extract values higher than  percentile `%q)%`
 #'
 #' @export
 #' @rdname extractors
@@ -234,7 +230,7 @@ NULL
   }
 }
 
-#' Extract values at percentile and smaller
+#' Extract values at percentile and smaller `%[q%`
 #'
 #' @export
 #' @rdname extractors
@@ -250,7 +246,7 @@ NULL
   }
 }
 
-#' Extract values smaller than percentile
+#' Extract values smaller than percentile `%(q%`
 #'
 #' @export
 #' @rdname extractors
@@ -266,7 +262,7 @@ NULL
   }
 }
 
-#' Extract first, middle or last value of vector
+#' Extract first, middle or last value of vector `%:%`
 #'
 #' @rdname extractors
 #' @export
@@ -312,7 +308,7 @@ NULL
 # > NULL
 
 
-#' Trim vector front
+#' Trim vector front `%[-%`
 #'
 #' @rdname trimmers
 #' @export
@@ -324,7 +320,7 @@ NULL
   }
 }
 
-#' Trim vector rear
+#' Trim vector rear `%-]%`
 #'
 #' @rdname trimmers
 #' @export
@@ -335,7 +331,7 @@ NULL
   }
 }
 
-#' Trim vector front + rear
+#' Trim vector front + rear `%[-]%`
 #'
 #' @rdname trimmers
 #' @export
@@ -391,7 +387,7 @@ NULL
 #'
 NULL
 
-#' Pad vector front
+#' Pad vector front `%[+%`
 #'
 #' @rdname padders
 #' @export
@@ -406,7 +402,7 @@ NULL
   }
 }
 
-#' Pad vector rear
+#' Pad vector rear `%+]%`
 #'
 #' @rdname padders
 #' @export
@@ -421,7 +417,7 @@ NULL
   }
 }
 
-#' Pad vector front + rear
+#' Pad vector front + rear `%[+]%`
 #'
 #' @rdname padders
 #' @export
@@ -438,6 +434,8 @@ NULL
     }
   }
 }
+
+# Regressors ----
 
 #' Regress vectors
 #'
@@ -470,9 +468,7 @@ NULL
 # > NULL
 
 
-# Regressors ----
-
-#' Correlate x and y
+#' Correlate x and y: `%/r%`
 #' @rdname regressors
 #' @export
 #'
@@ -482,7 +478,7 @@ NULL
   }
 }
 
-#' Polynomial regression of degree 1
+#' Polynomial regression of degree 1: `%/1%`
 #' @rdname regressors
 #' @export
 #'
@@ -492,7 +488,7 @@ NULL
   }
 }
 
-#' Polynomial regression of degree 2
+#' Polynomial regression of degree 2: `%/2%`
 #' @rdname regressors
 #' @export
 #'
@@ -502,7 +498,7 @@ NULL
   }
 }
 
-#' Polynomial regression of degree 3
+#' Polynomial regression of degree 3: `%/3%`
 #' @rdname regressors
 #' @export
 #'
@@ -512,7 +508,7 @@ NULL
   }
 }
 
-#' Polynomial regression of degree 4
+#' Polynomial regression of degree 4: `%/4%`
 #' @rdname regressors
 #' @export
 #'
@@ -522,7 +518,7 @@ NULL
   }
 }
 
-#' `%/n%` Polynomial regression of degree n
+#' `%/n%` Polynomial regression of degree n: `%/n%`
 #'
 #' @rdname regressors
 #' @export
@@ -591,7 +587,7 @@ NULL
 #'
 NULL
 
-#' Signed increment
+#' Signed increment `%+-%`
 #'
 #' @export
 #' @rdname Counters
@@ -616,7 +612,7 @@ NULL
   }
 }
 
-#'  Non-negative increment
+#'  Non-negative increment `%++%`
 #'
 #' @export
 #' @rdname Counters
@@ -635,10 +631,11 @@ NULL
   }
 }
 
+# Insiders ----
 
-#' Inside interval
+#' Values inside interval
 #'
-#' Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted, when the `.`-versions are used.
+# Decide if a value \code{x} falls inside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted, when the `.`-versions are used.
 #'
 #' @param x A vector
 #' @param j A 2-element numeric vector indicating a range
@@ -671,10 +668,7 @@ NULL
 NULL
 # >NULL
 
-
-# Insiders ----
-
-#'  In closed interval
+#'  In closed interval: `%[]%`
 #'
 #' @rdname insiders
 #' @export
@@ -687,7 +681,7 @@ NULL
   }
 }
 
-#'  In open interval
+#'  In open interval: `%()%`
 #'
 #' @rdname insiders
 #' @export
@@ -700,7 +694,7 @@ NULL
   }
 }
 
-#'  In half-closed interval (left)
+#'  In half-closed interval (left): `%[)%`
 #'
 #' @rdname insiders
 #' @export
@@ -713,7 +707,7 @@ NULL
   }
 }
 
-#'  In half-closed interval (right)
+#'  In half-closed interval (right): `%(]%`
 #'
 #' @rdname insiders
 #' @export
@@ -727,7 +721,7 @@ NULL
 }
 
 
-#'  Return x in closed interval
+#'  Return x in closed interval: `%[.]%`
 #'
 #' @rdname insiders
 #' @export
@@ -737,17 +731,17 @@ NULL
   x[x%[]%j]
 }
 
-#'  Return x in open interval
+#'  Return x in open interval: `%(.)%`
 #'
 #' @rdname insiders
 #' @export
 #'
 #'
 `%(.)%` <- function(x, j) {
-    x[x%()%j]
+  x[x%()%j]
 }
 
-#'  Return x in half-closed interval (left)
+#'  Return x in half-closed interval (left): `%[.)%`
 #'
 #' @rdname insiders
 #' @export
@@ -757,7 +751,7 @@ NULL
   x[x%[)%j]
 }
 
-#'  Return x in half-closed interval (right)
+#'  Return x in half-closed interval (right): `%(.]%`
 #'
 #' @rdname insiders
 #' @export
@@ -771,9 +765,9 @@ NULL
 
 # Outsiders -----
 
-#' Outside interval
+#' Values outside interval
 #'
-#' Decide if a value \code{x} falls outside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
+# Decide if a value \code{x} falls outside an interval \code{j[1],j[2]} that can be open or closed on the left and/or the right. Either a logical vector equal to \code{x}, or the actual values are extracted,
 #'
 #' @param x A vector
 #' @param j A range
@@ -807,7 +801,7 @@ NULL
 # >NULL
 
 
-#'  Not in closed interval
+#'  Not in closed interval: `%][%`
 #'
 #' @rdname outsiders
 #' @export
@@ -816,7 +810,7 @@ NULL
   return(!x%()%j)
 }
 
-#'  Not in open interval
+#'  Not in open interval: `%)(%`
 #'
 #' @rdname outsiders
 #' @export
@@ -826,7 +820,7 @@ NULL
   return(!x%[]%j)
 }
 
-#'  Not in half-closed interval (left)
+#'  Not in half-closed interval (left): `%](%`
 #'
 #' @rdname outsiders
 #' @export
@@ -836,7 +830,7 @@ NULL
   return(!x%(]%j)
 }
 
-#'  Not in half-closed interval (right)
+#'  Not in half-closed interval (right): `%)[%`
 #'
 #' @rdname outsiders
 #' @export
@@ -847,7 +841,7 @@ NULL
 }
 
 
-#'  Return x not in closed interval
+#'  Return x not in closed interval: `%].[%`
 #'
 #' @rdname outsiders
 #' @export
@@ -856,7 +850,7 @@ NULL
   return(x[!x%()%j])
 }
 
-#'  Return x not in open interval
+#'  Return x not in open interval: `%).(%`
 #'
 #' @rdname outsiders
 #' @export
@@ -866,7 +860,7 @@ NULL
   return(x[!x%[]%j])
 }
 
-#'  Return x not in half-closed interval (left)
+#'  Return x not in half-closed interval (left): `%].(%`
 #'
 #' @rdname outsiders
 #' @export
@@ -876,7 +870,7 @@ NULL
   return(x[!x%(]%j])
 }
 
-#'  Return x not in half-closed interval (right)
+#'  Return x not in half-closed interval (right): `%).[%`
 #'
 #' @rdname outsiders
 #' @export
@@ -964,7 +958,7 @@ NULL
 #'
 NULL
 
-#' Column by name or index
+#' Column by name or index: `%ci%`
 #'
 #' @rdname fINDexers
 #' @export
@@ -988,7 +982,7 @@ NULL
   return(NA)
 }
 
-#' Row by name or number
+#' Row by name or number: `%ri%`
 #'
 #' @rdname fINDexers
 #' @export
@@ -1000,7 +994,7 @@ NULL
     } else {
       return(dimnames(d)[[1]][r])
     }
-   } else {
+  } else {
     if(!is.null(names(d))){
       if(is.character(r)){
         return(which(names(d)%in%r))
@@ -1008,25 +1002,25 @@ NULL
         return(names(d)[r])
       }
     }
-   }
+  }
   return(NA)
 }
 
-#' Matrix cell index by name or number
+#' Matrix cell index by name or number: `%mi%`
 #'
 #' @rdname fINDexers
 #' @export
 #'
 `%mi%` <- function(rc,d) {
   if (all(!is.null(dimnames(d)[[1]]), any(is.numeric(unlist(rc)), is.character(unlist(rc))),length(rc)==2)){
-      rr <- rc[[1]]%ri%d
-      cc <- rc[[2]]%ci%d
-      if(is.list(rc)){
-        out <- list(rr,cc)
-        names(out) <- names(rc)
-        return(out)
-      }
-      return(c(rr,cc))
+    rr <- rc[[1]]%ri%d
+    cc <- rc[[2]]%ci%d
+    if(is.list(rc)){
+      out <- list(rr,cc)
+      names(out) <- names(rc)
+      return(out)
+    }
+    return(c(rr,cc))
   } else {
     message("d is a vector or list object")
   }
@@ -1034,7 +1028,7 @@ NULL
 }
 
 
-#' Return all indices of a (range of) values
+#' Return all indices of a (range of) values: `%ai%`
 #'
 #' @rdname fINDexers
 #' @export
@@ -1044,14 +1038,14 @@ NULL
     names(nv) <- paste0(nv)
     out <- plyr::ldply(nv, function(n) which(d==n,arr.ind = TRUE), .id = "nv")
     return(out)
-    } else {
+  } else {
     message("nv must be a numeric vector.")
-      return(NA)
+    return(NA)
   }
 }
 
 
-#' Is element of... with multiple input types
+#' Is element of... with multiple input types: `%e%`
 #'
 #' @param x A vector, data frame or list containing numbers and/or characters that could be elements of y
 #' @param y An object that could contain values in x
@@ -1072,7 +1066,7 @@ NULL
       outTable <- sapply(x, coliter, table = y)
     }
   }
- return(outTable)
+  return(outTable)
 }
 
 
@@ -1091,7 +1085,7 @@ coliter <- function(cin,table){
   for(c in 1:NCOL(cin)){
     if(all(is.numeric(cin[,c]%00%NaN))){
       cin[,c] <- cin[,c]%00%NaN
-      }
+    }
     if(all(is.character(cin[,c]%00%NA_character_))){
       cin[,c] <- cin[,c]%00%NaN
     }
@@ -1103,7 +1097,7 @@ coliter <- function(cin,table){
         outTable[,ct] <- table[,ct]%in%n
       }
       return(outTable)
-      })
+    })
   }
   names(out) <- colnames(cin)
   plyr::ldply(out,.id="variable")

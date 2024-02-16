@@ -14,10 +14,10 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Changing vectors and values: Replace, Add/Subtract, Trim, Pad">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Changing vectors and values: Replace, Add/Subtract, Trim, Pad">
 <meta property="og:description" content="invctr">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -80,7 +80,7 @@
                         <h4 data-toc-skip class="author">Fred
 Hasselman</h4>
             
-            <h4 data-toc-skip class="date">2022-08-17</h4>
+            <h4 data-toc-skip class="date">2024-02-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/FredHasselman/invctr/blob/HEAD/vignettes/padders.Rmd" class="external-link"><code>vignettes/padders.Rmd</code></a></small>
       <div class="d-none name"><code>padders.Rmd</code></div>
@@ -143,17 +143,17 @@ these cases the infix functions are much shorter.</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Change a column name based on the current name</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># colnames(d)[colnames(d)%in%"y"] &lt;- "Yhat"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(d)[<span class="st">"y"</span><span class="sc">%ci%</span>d] <span class="ot">&lt;-</span> <span class="st">"Yhat"</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span><span class="sc">%ci%</span>d</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"x"</span>    <span class="st">"Yhat"</span> <span class="st">"txt"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a range of values in variable to change cells</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># d$txt[d$x&gt;=2&amp;d$x&lt;=4] &lt;- "Changed!"</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">$</span>txt[d<span class="sc">$</span>x<span class="sc">%[]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)] <span class="ot">&lt;-</span> <span class="st">"Changed!"</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># Change a column name based on the current name</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># colnames(d)[colnames(d)%in%"y"] &lt;- "Yhat"</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="fu">colnames</span>(d)[<span class="st">"y"</span><span class="sc">%ci%</span>d] <span class="ot">&lt;-</span> <span class="st">"Yhat"</span> </span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span><span class="sc">%ci%</span>d</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"x"</span>    <span class="st">"Yhat"</span> <span class="st">"txt"</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co"># Use a range of values in variable to change cells</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># d$txt[d$x&gt;=2&amp;d$x&lt;=4] &lt;- "Changed!"</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  d<span class="sc">$</span>txt[d<span class="sc">$</span>x<span class="sc">%[]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)] <span class="ot">&lt;-</span> <span class="st">"Changed!"</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(d)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left"></th>
@@ -246,22 +246,22 @@ these cases the infix functions are much shorter.</p>
 </h3>
 <p>Use the rose tinted glasses <code>%00%</code> to change any nasty
 number into a cute fluffy value of your choice.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace special numerical values</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">Inf</span>,<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">2</span>,<span class="cn">NaN</span>,<span class="dv">3</span>) <span class="sc">%00%</span> <span class="cn">NA</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>]  <span class="dv">0</span> <span class="cn">NA</span>  <span class="dv">1</span> <span class="cn">NA</span>  <span class="dv">2</span> <span class="cn">NA</span>  <span class="dv">3</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Also works with NULL</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span> <span class="sc">%00%</span> <span class="cn">NA</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="cn">NA</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Length 0 vectors</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">logical</span>(<span class="dv">0</span>) <span class="sc">%00%</span> <span class="cn">NA</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="cn">NA</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">numeric</span>(<span class="dv">0</span>) <span class="sc">%00%</span> <span class="st">"lenghth 0!!"</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"lenghth 0!!"</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>         <span class="dv">0</span> <span class="sc">%00%</span> <span class="st">"lenghth 0!!"</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Replace special numerical values</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">Inf</span>,<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">2</span>,<span class="cn">NaN</span>,<span class="dv">3</span>) <span class="sc">%00%</span> <span class="cn">NA</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>]  <span class="dv">0</span> <span class="cn">NA</span>  <span class="dv">1</span> <span class="cn">NA</span>  <span class="dv">2</span> <span class="cn">NA</span>  <span class="dv">3</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># Also works with NULL</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="cn">NULL</span> <span class="sc">%00%</span> <span class="cn">NA</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="cn">NA</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co"># Length 0 vectors</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">logical</span>(<span class="dv">0</span>) <span class="sc">%00%</span> <span class="cn">NA</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="cn">NA</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fu">numeric</span>(<span class="dv">0</span>) <span class="sc">%00%</span> <span class="st">"lenghth 0!!"</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"lenghth 0!!"</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>         <span class="dv">0</span> <span class="sc">%00%</span> <span class="st">"lenghth 0!!"</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -269,68 +269,68 @@ number into a cute fluffy value of your choice.</p>
 </h2>
 <p>The counter infix functions can add or subtract values from an input
 source. This can be a value, or an object.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Signed increment</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># Notice the difference between passing an object and a value for counter</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># Value</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">11</span> <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">5</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">6</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> (<span class="dv">11</span> <span class="sc">%+-%</span>  <span class="dv">5</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">16</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Object</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">11</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a> (i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">5</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">6</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a> (i <span class="sc">%+-%</span>  <span class="dv">5</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">11</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a> <span class="co"># This means we can use the infix in a while ... statement</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a> <span class="co"># </span><span class="al">WARNING</span><span class="co">: As is the case for any while ... statement, be careful not to create an infinite loop!</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a> <span class="cf">while</span>(i <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">5</span>){</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>   i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">4</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">3</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">2</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">1</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Warning <span class="cf">in</span> i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span> Positive valued counter changed <span class="fu">sign</span> (counter <span class="sc">&lt;=</span> <span class="dv">0</span>)<span class="sc">!</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> [<span class="dv">1</span>] <span class="dv">0</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">3</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">4</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Non-negative increment</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># Notice the difference between passing an object and a value for counter</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># Value</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">0</span> <span class="sc">%++%</span> <span class="dv">5</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a> (<span class="dv">0</span> <span class="sc">%++%</span> <span class="dv">5</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Object</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a> (i <span class="sc">%++%</span> <span class="dv">5</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a> (i <span class="sc">%++%</span> <span class="dv">5</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">10</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a> <span class="co"># This means we can use the infix in a while ... statement</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a> <span class="co"># </span><span class="al">WARNING</span><span class="co">: As is the case for any while ... statement, be careful not to create an infinite loop!</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a> <span class="cf">while</span>(i <span class="sc">&lt;</span> <span class="dv">20</span>){</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a> i <span class="sc">%++%</span> <span class="dv">5</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a> <span class="fu">print</span>(i)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">10</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">15</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">20</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a> <span class="co"># Signed increment</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a> <span class="co"># Notice the difference between passing an object and a value for counter</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a> <span class="co"># Value</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a> (<span class="dv">11</span> <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">5</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">6</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a> (<span class="dv">11</span> <span class="sc">%+-%</span>  <span class="dv">5</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">16</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a> <span class="co"># Object</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">11</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a> (i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">5</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">6</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a> (i <span class="sc">%+-%</span>  <span class="dv">5</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">11</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a> <span class="co"># This means we can use the infix in a while ... statement</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a> <span class="co"># </span><span class="al">WARNING</span><span class="co">: As is the case for any while ... statement, be careful not to create an infinite loop!</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a> <span class="cf">while</span>(i <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">5</span>){</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>   i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>   <span class="fu">print</span>(i)</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a> }</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">4</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">3</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">2</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="sc">&gt;</span> Warning <span class="cf">in</span> i <span class="sc">%+-%</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span> Positive valued counter changed <span class="fu">sign</span> (counter <span class="sc">&lt;=</span> <span class="dv">0</span>)<span class="sc">!</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="er">&gt;</span> [<span class="dv">1</span>] <span class="dv">0</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">4</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="sc">-</span><span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a> <span class="co"># Non-negative increment</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a> <span class="co"># Notice the difference between passing an object and a value for counter</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a> <span class="co"># Value</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a> (<span class="dv">0</span> <span class="sc">%++%</span> <span class="dv">5</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a> (<span class="dv">0</span> <span class="sc">%++%</span> <span class="dv">5</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a> <span class="co"># Object</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a> (i <span class="sc">%++%</span> <span class="dv">5</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a> (i <span class="sc">%++%</span> <span class="dv">5</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">10</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a> <span class="co"># This means we can use the infix in a while ... statement</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a> <span class="co"># </span><span class="al">WARNING</span><span class="co">: As is the case for any while ... statement, be careful not to create an infinite loop!</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a> i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a> <span class="cf">while</span>(i <span class="sc">&lt;</span> <span class="dv">20</span>){</span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a> i <span class="sc">%++%</span> <span class="dv">5</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a> <span class="fu">print</span>(i)</span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a> }</span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">10</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">15</span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">20</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="padding-vectors">Padding vectors<a class="anchor" aria-label="anchor" href="#padding-vectors"></a>
@@ -339,35 +339,35 @@ source. This can be a value, or an object.</p>
 the front of <code>x</code>. Similarly, <code>%+]%</code> would add to
 the rear, and <code>%[+]%</code> to front and rear. If you want to add a
 value other than <code>0</code>, use <code>x %[+% c(n,v)</code></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> (x <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># Pad front with 10 zeros</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[+%</span><span class="dv">5</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># Same as</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[+%</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">0</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a> <span class="co"># Pad rear with zeros</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%+]%</span><span class="dv">5</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a> <span class="co"># Same as</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%+]%</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">0</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> <span class="co"># Pad front + rear with NA</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="cn">NA</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="cn">NA</span> <span class="cn">NA</span>  <span class="dv">2</span>  <span class="dv">7</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">9</span>  <span class="dv">7</span>  <span class="dv">1</span>  <span class="dv">3</span>  <span class="dv">7</span>  <span class="dv">6</span> <span class="cn">NA</span> <span class="cn">NA</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a> <span class="co"># Pad front + rear of a character vector</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="st">"no"</span>)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"no"</span>  <span class="st">"yes"</span> <span class="st">"no"</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="st">"no"</span>)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"yes"</span> <span class="st">"no"</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="st">"no"</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"yes"</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a> (x <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a> <span class="co"># Pad front with 10 zeros</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a> x<span class="sc">%[+%</span><span class="dv">5</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a> <span class="co"># Same as</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a> x<span class="sc">%[+%</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">0</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a> <span class="co"># Pad rear with zeros</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a> x<span class="sc">%+]%</span><span class="dv">5</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a> <span class="co"># Same as</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a> x<span class="sc">%+]%</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">0</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">9</span> <span class="dv">7</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">7</span> <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a> <span class="co"># Pad front + rear with NA</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a> x<span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="cn">NA</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="cn">NA</span> <span class="cn">NA</span>  <span class="dv">2</span>  <span class="dv">7</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">9</span>  <span class="dv">7</span>  <span class="dv">1</span>  <span class="dv">3</span>  <span class="dv">7</span>  <span class="dv">6</span> <span class="cn">NA</span> <span class="cn">NA</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a> <span class="co"># Pad front + rear of a character vector</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="st">"no"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"no"</span>  <span class="st">"yes"</span> <span class="st">"no"</span></span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="st">"no"</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"yes"</span> <span class="st">"no"</span></span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a> <span class="st">"yes"</span><span class="sc">%[+]%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="st">"no"</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="st">"yes"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="trimming-vectors">Trimming vectors<a class="anchor" aria-label="anchor" href="#trimming-vectors"></a>
@@ -378,24 +378,24 @@ from the front, rear, or, <code>n</code> from the front and
 <code>m</code> fro the rear. When <code>n</code> is uneven,
 <code>floor(n)</code> wil be trimmed from the front and
 <code>ceiling(n)</code> from the rear.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">set.seed</span>(<span class="dv">4321</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> (x <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">5</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># Trim front</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[-%</span><span class="dv">5</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">5</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a> <span class="co"># Trim rear</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%-]%</span><span class="dv">5</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a> <span class="co"># Trim front + rear</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[-]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a> x<span class="sc">%[-]%</span><span class="dv">3</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a> <span class="fu">set.seed</span>(<span class="dv">4321</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a> (x <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">10</span>)))</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="sc">&gt;</span>  [<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">5</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a> <span class="co"># Trim front</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a> x<span class="sc">%[-%</span><span class="dv">5</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">5</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a> <span class="co"># Trim rear</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a> x<span class="sc">%-]%</span><span class="dv">5</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">4</span> <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a> <span class="co"># Trim front + rear</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a> x<span class="sc">%[-]%</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a> x<span class="sc">%[-]%</span><span class="dv">3</span></span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a><span class="sc">&gt;</span> [<span class="dv">1</span>] <span class="dv">9</span> <span class="dv">5</span> <span class="dv">1</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -410,7 +410,7 @@ from the front, rear, or, <code>n</code> from the front and
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
     </footer>

@@ -26,11 +26,11 @@ A trimmed version of \code{x}
 \description{
 Trim vector by index
 
-Trim vector front
+Trim vector front \verb{\%[-\%}
 
-Trim vector rear
+Trim vector rear \verb{\%-]\%}
 
-Trim vector front + rear
+Trim vector front + rear \verb{\%[-]\%}
 }
 \examples{
 

@@ -44,15 +44,37 @@ x \%:\% j
 
 \item{i}{An index or two element vector \code{c(lo,hi)} indicating a range to extract}
 
-\item{q}{A percentile value (between `0` and `1`)}
+\item{q}{A percentile value (between \code{0} and \code{1})}
 
-\item{j}{A character indicating to extract the first `f`, middle `m` or last `l` value of `x`.}
+\item{j}{A character indicating to extract the first \code{f}, middle \code{m} or last \code{l} value of \code{x}.}
 }
 \value{
-A vector extracted from the front, rear, or, range of `x`. Either based on an index or the first or last occurrence of a value or the first, middle, or, ;ast element of a vector.
+A vector extracted from the front, rear, or, range of \code{x}. Either based on an index or the first or last occurrence of a value or the first, middle, or, last element of a vector.
 }
 \description{
-Extract front or rear of vector `x` up and untill an index `i`, the first or last occurence of a value `v`, or, extract values based on quantile `q`, first, middle, or, last index `j`.
+Extract vectors by index or value occurrence
+
+Extract front by first occurrence of a value \verb{\%[f\%}
+
+Extract front by last occurrence of a value \verb{\%[l\%}
+
+Extract vector front by index \verb{\%[\%}
+
+Extract vector rear by index \verb{\%]\%}
+
+Extract first occurrence of a value to vector rear \verb{\%f]\%}
+
+Extract last occurrence of a value to vector rear \verb{\%l]\%}
+
+Extract values at percentile and higher \verb{\%q]\%}
+
+Extract values higher than  percentile \verb{\%q)\%}
+
+Extract values at percentile and smaller \verb{\%[q\%}
+
+Extract values smaller than percentile \verb{\%(q\%}
+
+Extract first, middle or last value of vector \verb{\%:\%}
 }
 \note{
 The function provided for symmetry, character lengths of \code{x\%]\%i} and \code{x[1:i]} are equal.

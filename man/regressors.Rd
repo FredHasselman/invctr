@@ -32,17 +32,17 @@ x \%/n\% yn
 \description{
 Regress vectors
 
-Correlate x and y
+Correlate x and y: \verb{\%/r\%}
 
-Polynomial regression of degree 1
+Polynomial regression of degree 1: \verb{\%/1\%}
 
-Polynomial regression of degree 2
+Polynomial regression of degree 2: \verb{\%/2\%}
 
-Polynomial regression of degree 3
+Polynomial regression of degree 3: \verb{\%/3\%}
 
-Polynomial regression of degree 4
+Polynomial regression of degree 4: \verb{\%/4\%}
 
-`%/n%` Polynomial regression of degree n
+\verb{\%/n\%} Polynomial regression of degree n: \verb{\%/n\%}
 }
 \examples{
 
